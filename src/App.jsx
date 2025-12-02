@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/contexts/SupabaseAuthContext';
@@ -33,7 +33,7 @@ import RegisterOrganizationPage from '@/pages/auth/RegisterOrganizationPage';
 import RegisterUserPage from '@/pages/auth/RegisterUserPage';
 
 // Dashboard Pages
-import UserDashboard from '@/pages/dashboard/UserDashboard';
+//import UserDashboard from '@/pages/dashboard/UserDashboard';
 import InternalAdminDashboard from '@/pages/admin/InternalAdminDashboard';
 
 function App() {
@@ -71,14 +71,14 @@ function App() {
 								<Route path="/register-user" element={<RegisterUserPage />} />
 
 								{/* Protected Routes */}
-								<Route
+								{/*<Route
 									path="/dashboard"
 									element={
 										<ProtectedRoute>
 											<UserDashboard />
 										</ProtectedRoute>
 									}
-								/>
+								/> */}
 								<Route
 									path="/admin/portal"
 									element={

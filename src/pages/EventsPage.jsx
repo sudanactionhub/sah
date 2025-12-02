@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import react, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, Clock, ExternalLink, ChevronLeft, ChevronRight, Filter, Globe, Search, List } from 'lucide-react';

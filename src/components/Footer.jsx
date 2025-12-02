@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button'; // Import Button component

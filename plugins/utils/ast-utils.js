@@ -181,7 +181,7 @@ function isBlacklistedComponent(jsxOpeningElement) {
 		return COMPONENT_BLACKLIST.has(jsxOpeningElement.name.name);
 	}
 
-	// Handle JSXMemberExpression (e.g., <React.Fragment>)
+	// Handle JSXMemberExpression (e.g., <react.Fragment>)
 	if (isJSXMemberExpression(jsxOpeningElement.name)) {
 		let current = jsxOpeningElement.name;
 		while (isJSXMemberExpression(current)) {

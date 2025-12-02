@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import react, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';

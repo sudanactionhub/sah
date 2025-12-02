@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { Loader2 } from 'lucide-react';
@@ -31,7 +31,7 @@ const ProtectedRoute = ({ children, requiredRole }) => {
     }
 
     if (requiredRole === 'super_admin' && profile.role !== 'super_admin') {
-      return <Navigate to="/dashboard" replace />;
+      return <Navigate to="/admin/portal" replace />;
     }
     
     // Add more role checks as needed

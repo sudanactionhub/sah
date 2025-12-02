@@ -81,8 +81,26 @@ function extractRoutes(appJsxPath) {
   }
 }
 
-function findReactFiles(dir) {
-  return fs.readdirSync(dir).map(item => path.join(dir, item));
+function findreactFiles(dir) {
+  const results = [];
+
+  function walk(currentDir) {
+    const entries = fs.readdirSync(currentDir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(currentDir, entry.name);
+      if (entry.isDirectory()) {
+        walk(fullPath);
+      } else if (entry.isFile()) {
+        const ext = path.extname(entry.name).toLowerCase();
+        if (['.js', '.jsx', '.ts', '.tsx'].includes(ext)) {
+          results.push(fullPath);
+        }
+      }
+    }
+  }
+
+  walk(dir);
+  return results;
 }
 
 function extractHelmetData(content, filePath, routes) {
@@ -103,8 +121,8 @@ function extractHelmetData(content, filePath, routes) {
   const description = cleanText(descMatch?.[1]);
   
   const fileName = path.basename(filePath, path.extname(filePath));
-  const url = routes.length && routes.has(fileName) 
-    ? routes.get(fileName) 
+  const url = (routes instanceof Map && routes.has(fileName))
+    ? routes.get(fileName)
     : generateFallbackUrl(fileName);
   
   return {
@@ -154,7 +172,7 @@ function main() {
     pages.push(processPageFile(appJsxPath, []));
   } else {
     const routes = extractRoutes(appJsxPath);
-    const reactFiles = findReactFiles(pagesDir);
+    const reactFiles = findreactFiles(pagesDir);
 
     pages = reactFiles
       .map(filePath => processPageFile(filePath, routes))

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import react, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Calendar, Loader2, Search, X } from 'lucide-react';

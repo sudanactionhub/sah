@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import react, { useCallback, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart as ShoppingCartIcon, X } from 'lucide-react';

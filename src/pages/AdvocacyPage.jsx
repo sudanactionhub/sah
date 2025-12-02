@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Megaphone, Users, FileText, Share2 } from 'lucide-react';

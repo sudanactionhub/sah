@@ -84,7 +84,7 @@ function getParentOrigin() {
 }
 
 /**
- * Extract file path from React Fiber metadata (simplified - only for filePath)
+ * Extract file path from react Fiber metadata (simplified - only for filePath)
  * @param {*} node - DOM node
  * @returns {string|null} - File path if found, null otherwise
  */
@@ -353,7 +353,7 @@ function handleClick(event) {
 		showSelectedOverlay(selectedElement);
 	}
 
-	// Extract file path from React Fiber (if available)
+	// Extract file path from react Fiber (if available)
 	const filePath = getFilePathFromNode(currentHoverElement);
 	const strippedFilePath = filePath ? stripFilePath(filePath) : undefined;
 

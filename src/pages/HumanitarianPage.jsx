@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Heart, TrendingUp, CheckCircle, Clock, ExternalLink, HeartHandshake } from 'lucide-react';

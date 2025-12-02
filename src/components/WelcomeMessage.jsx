@@ -1,4 +1,4 @@
-import React from 'react';
+import react from 'react';
 import { motion } from 'framer-motion';
 
 const WelcomeMessage = () => {

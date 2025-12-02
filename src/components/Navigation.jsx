@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import react, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Heart, ChevronDown, User, LogOut, LayoutDashboard, Shield } from 'lucide-react';
@@ -134,11 +134,19 @@ const Navigation = () => {
 
             {/* Right side buttons */}
             <div className="ml-6 flex items-center space-x-3 pl-6 border-l border-gray-200 h-8">
-              <Link to="/donations">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all px-6">
-                  Donate
-                </Button>
-              </Link>
+              {user && profile?.role === 'super_admin' ? (
+                <Link to="/admin/portal">
+                  <Button className="bg-green-600 hover:bg-green-700 text-white shadow-sm hover:shadow-md transition-all px-6 flex items-center gap-2">
+                    <LayoutDashboard className="h-4 w-4" /> Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <Link to="/donations">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all px-6">
+                    Donate
+                  </Button>
+                </Link>
+              )}
 
               {user ? (
                 <DropdownMenu>
@@ -151,15 +159,10 @@ const Navigation = () => {
                     <div className="px-2 py-1.5 text-sm font-semibold text-gray-900 border-b mb-1">
                       {profile?.full_name || user.email}
                     </div>
-                    <DropdownMenuItem asChild>
-                      <Link to="/dashboard" className="cursor-pointer flex items-center">
-                        <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
-                      </Link>
-                    </DropdownMenuItem>
                     {profile?.role === 'super_admin' && (
                       <DropdownMenuItem asChild>
                         <Link to="/admin/portal" className="cursor-pointer flex items-center">
-                          <Shield className="mr-2 h-4 w-4" /> Admin Portal
+                          <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
                         </Link>
                       </DropdownMenuItem>
                     )}
@@ -260,17 +263,11 @@ const Navigation = () => {
 
               {/* Buttons */}
               <div className="pt-6 mt-6 border-t border-gray-100 space-y-3">
-                <Link to="/donations" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg h-12 shadow-sm">
-                    Donate
-                  </Button>
-                </Link>
-
-                {user ? (
+                {user && profile?.role === 'super_admin' ? (
                   <>
-                    <Link to="/dashboard" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full justify-start h-12 text-base">
-                        <LayoutDashboard className="mr-3 h-5 w-5" /> Dashboard
+                    <Link to="/admin/portal" onClick={() => setIsOpen(false)}>
+                      <Button className="w-full bg-green-600 hover:bg-green-700 text-lg h-12 shadow-sm flex items-center justify-center gap-2">
+                        <LayoutDashboard className="h-5 w-5" /> Dashboard
                       </Button>
                     </Link>
 
@@ -283,11 +280,19 @@ const Navigation = () => {
                     </Button>
                   </>
                 ) : (
-                  <Link to="/login" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="w-full h-12 text-base border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700">
-                      Log In
-                    </Button>
-                  </Link>
+                  <>
+                    <Link to="/donations" onClick={() => setIsOpen(false)}>
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg h-12 shadow-sm">
+                        Donate
+                      </Button>
+                    </Link>
+
+                    <Link to="/login" onClick={() => setIsOpen(false)}>
+                      <Button variant="outline" className="w-full h-12 text-base border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700">
+                        Log In
+                      </Button>
+                    </Link>
+                  </>
                 )}
               </div>
             </div>

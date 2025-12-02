@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import react, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { Button } from '@/components/ui/button';
@@ -19,7 +19,7 @@ const LoginPage = () => {
     setLoading(true);
     const { error } = await signIn(email, password);
     if (!error) {
-      navigate('/dashboard');
+      navigate('/admin/portal');
     }
     setLoading(false);
   };

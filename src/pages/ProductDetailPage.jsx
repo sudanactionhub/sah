@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import react, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import react, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Ticket, Award, HeartHandshake as Handshake } from 'lucide-react';

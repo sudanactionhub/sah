@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import react, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet';
 import { supabase } from '@/lib/customSupabaseClient';
 import { useToast } from "@/components/ui/use-toast";
