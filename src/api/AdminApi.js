@@ -180,8 +180,9 @@ export async function createEvent(eventData) {
       .insert([{
         title: eventData.title,
         description: eventData.description,
+        // event_date and end_date are timestamptz columns
         event_date: eventData.event_date,
-        event_time: eventData.event_time,
+        end_date: eventData.end_date,
         // 'address' is the address line, 'location' stores City, State
         address: eventData.address,
         location: eventData.location,
@@ -211,12 +212,24 @@ export async function createEvent(eventData) {
  */
 export async function updateEvent(id, eventData) {
   try {
+    const updatePayload = {
+      title: eventData.title,
+      description: eventData.description,
+      event_date: eventData.event_date,
+      end_date: eventData.end_date,
+      address: eventData.address,
+      location: eventData.location,
+      registration_url: eventData.registration_url,
+      featured_image: eventData.featured_image,
+      organizer: eventData.organizer,
+      tags: eventData.tags,
+      status: eventData.status || 'draft',
+      updated_at: new Date().toISOString(),
+    };
+
     const { data, error } = await supabase
       .from('events')
-      .update({
-        ...eventData,
-        updated_at: new Date().toISOString(),
-      })
+      .update(updatePayload)
       .eq('id', id)
       .select()
       .single();

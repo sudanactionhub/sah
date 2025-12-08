@@ -1,5 +1,6 @@
 import react from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
 import { AuthProvider } from '@/contexts/SupabaseAuthContext';
 import { CartProvider } from '@/hooks/useCart';
@@ -39,6 +40,9 @@ import InternalAdminDashboard from '@/pages/admin/InternalAdminDashboard';
 function App() {
 	return (
 		<AuthProvider>
+			<Helmet>
+				<meta name="keywords" content="sudan war, sudan news, sudan civil war, war in sudan, sudan people, sudan africa, sudan genocide, sudan conflict, sudan time" />
+			</Helmet>
 			<Router>
 				<CartProvider>
 					<div className="min-h-screen flex flex-col">

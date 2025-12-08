@@ -33,8 +33,11 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    // use `datetime-local` input values (local naive) and convert to ISO on submit
     event_date: '',
-    event_time: '',
+    end_date: '',
+    no_end: false,
+    virtual: false,
     // 'address' -> full address line, 'location' -> City, State (maps to events.location column)
     address: '',
     location: '',
@@ -49,11 +52,20 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
 
   useEffect(() => {
     if (event) {
+      const toLocalInput = (iso) => {
+        if (!iso) return '';
+        const d = new Date(iso);
+        const pad = (n) => String(n).padStart(2, '0');
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+      };
+
       setFormData({
         title: event.title || '',
         description: event.description || '',
-        event_date: event.event_date?.split('T')[0] || '',
-        event_time: event.event_time || '',
+        event_date: toLocalInput(event.event_date) || '',
+        end_date: toLocalInput(event.end_date) || '',
+        no_end: !event.end_date,
+        virtual: event.location === 'virtual',
         address: event.address || '',
         location: event.location || '',
         registration_url: event.registration_url || '',
@@ -91,10 +103,27 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
     setLoading(true);
 
     try {
+      // Convert local datetime-local strings to ISO timestamps (timestamptz)
+      const toIso = (val) => {
+        if (!val) return null;
+        const d = new Date(val);
+        if (isNaN(d)) return null;
+        return d.toISOString();
+      };
+
       const eventData = {
-        ...formData,
-        // Ensure tags is an array of trimmed strings
+        title: formData.title,
+        description: formData.description || null,
+        event_date: toIso(formData.event_date),
+        // If 'no_end' is true, explicitly set end_date to null
+        end_date: formData.no_end ? null : (toIso(formData.end_date) || null),
+        address: formData.address || null,
+        location: formData.location || null,
+        registration_url: formData.registration_url || null,
+        featured_image: formData.featured_image || null,
+        organizer: formData.organizer || null,
         tags: Array.isArray(formData.tags) ? formData.tags.map(t => t.trim()).filter(Boolean) : [],
+        status: formData.status || 'draft',
       };
 
       if (event?.id) {
@@ -180,25 +209,40 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
             />
           </div>
 
-          {/* Date and Time */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Start and End (datetime-local) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="event_date">Event Date *</Label>
+              <Label htmlFor="event_date">Event Start *</Label>
               <Input
                 id="event_date"
-                type="date"
+                type="datetime-local"
                 value={formData.event_date}
                 onChange={(e) => handleInputChange('event_date', e.target.value)}
                 required
               />
             </div>
             <div>
-              <Label htmlFor="event_time">Event Time</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="end_date">Event End</Label>
+                <label className="inline-flex items-center text-sm">
+                  <input
+                    type="checkbox"
+                    checked={formData.no_end}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setFormData(prev => ({ ...prev, no_end: checked, end_date: checked ? '' : prev.end_date }));
+                    }}
+                    className="mr-2"
+                  />
+                  No end
+                </label>
+              </div>
               <Input
-                id="event_time"
-                type="time"
-                value={formData.event_time}
-                onChange={(e) => handleInputChange('event_time', e.target.value)}
+                id="end_date"
+                type="datetime-local"
+                value={formData.end_date}
+                onChange={(e) => handleInputChange('end_date', e.target.value)}
+                disabled={formData.no_end}
               />
             </div>
           </div>
@@ -215,12 +259,27 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
               />
             </div>
             <div>
-              <Label htmlFor="location">City, State</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="location">City, State</Label>
+                <label className="inline-flex items-center text-sm">
+                  <input
+                    type="checkbox"
+                    checked={formData.virtual}
+                    onChange={(e) => {
+                      const checked = e.target.checked;
+                      setFormData(prev => ({ ...prev, virtual: checked, location: checked ? 'virtual' : '' }));
+                    }}
+                    className="mr-2"
+                  />
+                  Virtual
+                </label>
+              </div>
               <Input
                 id="location"
                 value={formData.location}
                 onChange={(e) => handleInputChange('location', e.target.value)}
                 placeholder="City, State (e.g., Khartoum, Khartoum)"
+                disabled={formData.virtual}
               />
             </div>
           </div>
