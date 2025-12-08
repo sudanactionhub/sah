@@ -189,7 +189,7 @@ export async function createEvent(eventData) {
         registration_url: eventData.registration_url,
         image_url: eventData.image_url,
         organizer: eventData.organizer,
-        tags: eventData.tags,
+        event_type: eventData.event_type,
         status: eventData.status || 'draft',
         created_at: new Date().toISOString(),
       }])
@@ -222,7 +222,7 @@ export async function updateEvent(id, eventData) {
       registration_url: eventData.registration_url,
       image_url: eventData.image_url,
       organizer: eventData.organizer,
-      tags: eventData.tags,
+      event_type: eventData.event_type,
       status: eventData.status || 'draft',
       updated_at: new Date().toISOString(),
     };

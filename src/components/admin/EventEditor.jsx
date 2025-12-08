@@ -44,7 +44,7 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
     registration_url: '',
     image_url: '',
     organizer: '',
-    tags: [],
+    event_type: '',
     status: 'draft',
   });
   const [loading, setLoading] = useState(false);
@@ -71,15 +71,10 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
         registration_url: event.registration_url || '',
         image_url: event.image_url || '',
         organizer: event.organizer || '',
-        tags: Array.isArray(event.tags) ? event.tags : (event.tags ? [event.tags] : []),
+        event_type: event.event_type || '',
         status: event.status || 'draft',
       });
 
-      // Merge any unknown tags into available categories so they can be re-used
-      if (Array.isArray(event.tags)) {
-        const unknown = event.tags.filter(t => !availableCategories.includes(t));
-        if (unknown.length) setAvailableCategories(prev => Array.from(new Set([...prev, ...unknown])));
-      }
     }
   }, [event, availableCategories]);
 
@@ -122,7 +117,7 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
         registration_url: formData.registration_url || null,
         image_url: formData.image_url || null,
         organizer: formData.organizer || null,
-        tags: Array.isArray(formData.tags) ? formData.tags.map(t => t.trim()).filter(Boolean) : [],
+        event_type: formData.event_type || null,
         status: formData.status || 'draft',
       };
 
@@ -326,60 +321,21 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
             />
           </div>
 
-          {/* Tags (select existing or add new) */}
+          {/* Category */}
           <div>
-            <Label>Tags</Label>
-            <div className="grid gap-2">
-              <div className="flex flex-wrap gap-2">
-                {availableCategories.map(cat => {
-                  const checked = formData.tags.includes(cat);
-                  return (
-                    <label key={cat} className="inline-flex items-center space-x-2 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => {
-                          setFormData(prev => ({
-                            ...prev,
-                            tags: prev.tags.includes(cat) ? prev.tags.filter(t => t !== cat) : [...prev.tags, cat],
-                          }));
-                        }}
-                      />
-                      <span className="text-sm">{cat}</span>
-                    </label>
-                  );
-                })}
-              </div>
-
-              {formData.tags.length > 0 && (
-                <div className="mt-2 flex gap-2 flex-wrap">
-                  {formData.tags.map(tag => (
-                    <Badge key={tag} variant="secondary">{tag}</Badge>
-                  ))}
-                </div>
-              )}
-
-              <div className="flex gap-2 mt-2">
-                <Input id="new-tag" placeholder="Add new tag" onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault();
-                    const val = e.target.value.trim();
-                    if (!val) return;
-                    if (!availableCategories.includes(val)) setAvailableCategories(prev => [...prev, val]);
-                    if (!formData.tags.includes(val)) setFormData(prev => ({ ...prev, tags: [...prev.tags, val] }));
-                    e.target.value = '';
-                  }
-                }} />
-                <Button type="button" onClick={() => {
-                  const input = document.getElementById('new-tag');
-                  const val = input?.value?.trim();
-                  if (!val) return;
-                  if (!availableCategories.includes(val)) setAvailableCategories(prev => [...prev, val]);
-                  if (!formData.tags.includes(val)) setFormData(prev => ({ ...prev, tags: [...prev.tags, val] }));
-                  if (input) input.value = '';
-                }}>Add</Button>
-              </div>
-            </div>
+            <Label htmlFor="event_type">Category *</Label>
+            <select
+              id="event_type"
+              value={formData.event_type}
+              onChange={(e) => handleInputChange('event_type', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              required
+            >
+              <option value="">Select a category</option>
+              {availableCategories.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
           </div>
 
           {/* Status */}
