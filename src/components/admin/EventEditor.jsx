@@ -42,7 +42,7 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
     address: '',
     location: '',
     registration_url: '',
-    featured_image: '',
+    image_url: '',
     organizer: '',
     tags: [],
     status: 'draft',
@@ -69,7 +69,7 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
         address: event.address || '',
         location: event.location || '',
         registration_url: event.registration_url || '',
-        featured_image: event.featured_image || '',
+        image_url: event.image_url || '',
         organizer: event.organizer || '',
         tags: Array.isArray(event.tags) ? event.tags : (event.tags ? [event.tags] : []),
         status: event.status || 'draft',
@@ -91,7 +91,7 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
   };
 
   const handleImageUpload = (url) => {
-    handleInputChange('featured_image', url);
+    handleInputChange('image_url', url);
     toast({
       title: 'Image uploaded',
       description: 'Featured image has been set',
@@ -120,7 +120,7 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
         address: formData.address || null,
         location: formData.location || null,
         registration_url: formData.registration_url || null,
-        featured_image: formData.featured_image || null,
+        image_url: formData.image_url || null,
         organizer: formData.organizer || null,
         tags: Array.isArray(formData.tags) ? formData.tags.map(t => t.trim()).filter(Boolean) : [],
         status: formData.status || 'draft',
@@ -306,9 +306,9 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
               acceptedTypes="image/*"
               label="Upload Image"
             />
-            {formData.featured_image && (
+            {formData.image_url && (
               <img
-                src={formData.featured_image}
+                src={formData.image_url}
                 alt="Featured"
                 className="mt-2 h-32 w-full object-cover rounded-lg"
               />
