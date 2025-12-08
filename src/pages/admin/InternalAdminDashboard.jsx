@@ -175,13 +175,13 @@ const InternalAdminDashboard = () => {
           <Badge variant="outline" className="bg-blue-100 text-blue-800">Super Admin</Badge>
         </div>
 
-        <Tabs defaultValue="requests" className="space-y-6">
+        <Tabs defaultValue="events" className="space-y-6">
           <TabsList className="grid w-full grid-cols-5">
-            <TabsTrigger value="requests">Requests ({orgRequests.length + verifRequests.length})</TabsTrigger>
-            <TabsTrigger value="news">News ({news.length})</TabsTrigger>
             <TabsTrigger value="events">Events ({events.length})</TabsTrigger>
+            <TabsTrigger value="news">News ({news.length})</TabsTrigger>
             <TabsTrigger value="research">Research ({research.length})</TabsTrigger>
             <TabsTrigger value="settings">Settings</TabsTrigger>
+            <TabsTrigger value="requests">Requests ({orgRequests.length + verifRequests.length})</TabsTrigger>
           </TabsList>
 
           {/* REQUESTS TAB */}

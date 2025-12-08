@@ -182,7 +182,10 @@ export async function createEvent(eventData) {
         description: eventData.description,
         event_date: eventData.event_date,
         event_time: eventData.event_time,
+        // 'address' is the address line, 'location' stores City, State
+        address: eventData.address,
         location: eventData.location,
+        registration_url: eventData.registration_url,
         featured_image: eventData.featured_image,
         organizer: eventData.organizer,
         tags: eventData.tags,

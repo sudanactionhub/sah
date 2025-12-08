@@ -20,15 +20,28 @@ import { Trash2, Save, X } from 'lucide-react';
  * @param {Function} props.onDelete - Callback when item is deleted
  */
 const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
+  const EVENT_CATEGORIES = [
+    'Press Interviews',
+    'Protests',
+    'Fundraisers',
+    'Workshops & Teach-Ins',
+    'General Advocacy',
+  ];
+
+  const [availableCategories, setAvailableCategories] = useState(EVENT_CATEGORIES);
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     event_date: '',
     event_time: '',
+    // 'address' -> full address line, 'location' -> City, State (maps to events.location column)
+    address: '',
     location: '',
+    registration_url: '',
     featured_image: '',
     organizer: '',
-    tags: '',
+    tags: [],
     status: 'draft',
   });
   const [loading, setLoading] = useState(false);
@@ -41,14 +54,22 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
         description: event.description || '',
         event_date: event.event_date?.split('T')[0] || '',
         event_time: event.event_time || '',
+        address: event.address || '',
         location: event.location || '',
+        registration_url: event.registration_url || '',
         featured_image: event.featured_image || '',
         organizer: event.organizer || '',
-        tags: Array.isArray(event.tags) ? event.tags.join(', ') : event.tags || '',
+        tags: Array.isArray(event.tags) ? event.tags : (event.tags ? [event.tags] : []),
         status: event.status || 'draft',
       });
+
+      // Merge any unknown tags into available categories so they can be re-used
+      if (Array.isArray(event.tags)) {
+        const unknown = event.tags.filter(t => !availableCategories.includes(t));
+        if (unknown.length) setAvailableCategories(prev => Array.from(new Set([...prev, ...unknown])));
+      }
     }
-  }, [event]);
+  }, [event, availableCategories]);
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({
@@ -72,7 +93,8 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
     try {
       const eventData = {
         ...formData,
-        tags: formData.tags.split(',').map(t => t.trim()).filter(Boolean),
+        // Ensure tags is an array of trimmed strings
+        tags: Array.isArray(formData.tags) ? formData.tags.map(t => t.trim()).filter(Boolean) : [],
       };
 
       if (event?.id) {
@@ -146,15 +168,14 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
             />
           </div>
 
-          {/* Description */}
+          {/* Description (optional) */}
           <div>
-            <Label htmlFor="description">Description *</Label>
+            <Label htmlFor="description">Description</Label>
             <Textarea
               id="description"
               value={formData.description}
               onChange={(e) => handleInputChange('description', e.target.value)}
-              placeholder="Event description"
-              required
+              placeholder="Event description (optional)"
               rows="6"
             />
           </div>
@@ -182,14 +203,37 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
             </div>
           </div>
 
-          {/* Location */}
+          {/* Address line and City/State (location) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="address">Address Line</Label>
+              <Input
+                id="address"
+                value={formData.address}
+                onChange={(e) => handleInputChange('address', e.target.value)}
+                placeholder="Street address, building, etc."
+              />
+            </div>
+            <div>
+              <Label htmlFor="location">City, State</Label>
+              <Input
+                id="location"
+                value={formData.location}
+                onChange={(e) => handleInputChange('location', e.target.value)}
+                placeholder="City, State (e.g., Khartoum, Khartoum)"
+              />
+            </div>
+          </div>
+
+          {/* Registration / external link */}
           <div>
-            <Label htmlFor="location">Location</Label>
+            <Label htmlFor="registration_url">Registration / External Link</Label>
             <Input
-              id="location"
-              value={formData.location}
-              onChange={(e) => handleInputChange('location', e.target.value)}
-              placeholder="Event location (venue or address)"
+              id="registration_url"
+              type="url"
+              value={formData.registration_url}
+              onChange={(e) => handleInputChange('registration_url', e.target.value)}
+              placeholder="https://... or /internal-path"
             />
           </div>
 
@@ -223,22 +267,60 @@ const EventEditor = ({ event = null, onSave, onCancel, onDelete }) => {
             />
           </div>
 
-          {/* Tags */}
+          {/* Tags (select existing or add new) */}
           <div>
-            <Label htmlFor="tags">Tags</Label>
-            <Input
-              id="tags"
-              value={formData.tags}
-              onChange={(e) => handleInputChange('tags', e.target.value)}
-              placeholder="Separate tags with commas"
-            />
-            {formData.tags && (
-              <div className="mt-2 flex gap-2 flex-wrap">
-                {formData.tags.split(',').map(tag => (
-                  <Badge key={tag} variant="secondary">{tag.trim()}</Badge>
-                ))}
+            <Label>Tags</Label>
+            <div className="grid gap-2">
+              <div className="flex flex-wrap gap-2">
+                {availableCategories.map(cat => {
+                  const checked = formData.tags.includes(cat);
+                  return (
+                    <label key={cat} className="inline-flex items-center space-x-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => {
+                          setFormData(prev => ({
+                            ...prev,
+                            tags: prev.tags.includes(cat) ? prev.tags.filter(t => t !== cat) : [...prev.tags, cat],
+                          }));
+                        }}
+                      />
+                      <span className="text-sm">{cat}</span>
+                    </label>
+                  );
+                })}
               </div>
-            )}
+
+              {formData.tags.length > 0 && (
+                <div className="mt-2 flex gap-2 flex-wrap">
+                  {formData.tags.map(tag => (
+                    <Badge key={tag} variant="secondary">{tag}</Badge>
+                  ))}
+                </div>
+              )}
+
+              <div className="flex gap-2 mt-2">
+                <Input id="new-tag" placeholder="Add new tag" onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const val = e.target.value.trim();
+                    if (!val) return;
+                    if (!availableCategories.includes(val)) setAvailableCategories(prev => [...prev, val]);
+                    if (!formData.tags.includes(val)) setFormData(prev => ({ ...prev, tags: [...prev.tags, val] }));
+                    e.target.value = '';
+                  }
+                }} />
+                <Button type="button" onClick={() => {
+                  const input = document.getElementById('new-tag');
+                  const val = input?.value?.trim();
+                  if (!val) return;
+                  if (!availableCategories.includes(val)) setAvailableCategories(prev => [...prev, val]);
+                  if (!formData.tags.includes(val)) setFormData(prev => ({ ...prev, tags: [...prev.tags, val] }));
+                  if (input) input.value = '';
+                }}>Add</Button>
+              </div>
+            </div>
           </div>
 
           {/* Status */}

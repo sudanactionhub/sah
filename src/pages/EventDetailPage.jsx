@@ -259,6 +259,9 @@ const EventDetailPage = () => {
                     <MapPin className="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">Location</p>
+                      {event.address && (
+                        <p className="text-gray-600">{event.address}</p>
+                      )}
                       <p className="text-gray-600">{event.location || 'TBA'}</p>
                     </div>
                   </div>
