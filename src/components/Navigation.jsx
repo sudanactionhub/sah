@@ -77,7 +77,7 @@ const Navigation = () => {
       items: [
         { name: 'Advocacy', path: '/advocacy' },
         // Updated humanitarian link
-        { name: 'Humanitarian', path: 'https://wadihowar.org/447-2' },
+        { name: 'Humanitarian', path: '/humanitarian' },
         { name: 'Diaspora', path: '/diaspora' },
       ],
     },

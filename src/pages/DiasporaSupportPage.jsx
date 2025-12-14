@@ -14,6 +14,7 @@ const DiasporaSupportPage = () => {
       description: "Help the Indianapolis Sudanese community maintain their community space. This space serves as a hub for the growing Sudanese diaspora in Indy, offering cultural programs, educational support, and a gathering place for families and refugees settling in the area.",
       link: "https://www.gofundme.com/f/support-sudanese-american-association-indy?attribution_id=sl:06d77922-8f91-43af-a128-2687d81b2dec&lang=en_US&ts=1763258484&utm_campaign=man_sharesheet_dash&utm_content=amp17_te&utm_medium=customer&utm_source=copy_link",
       tags: ["Community Building", "USA", "Indianapolis"],
+      src: "https://images.gofundme.com/2jm1utpmNNTWh29zwYbB0oBAi9E=/720x405/https://d2g8igdw686xgo.cloudfront.net/96634007_1763258418754857_r.jpeg",
       imageAlt: "Community members gathering at an event",
       imageDescription: "A group of diverse community members gathering indoors for a meeting"
     }
@@ -60,7 +61,7 @@ const DiasporaSupportPage = () => {
                    <img 
                      alt={campaign.imageAlt} 
                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    src="https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-6/314695945_110263581897009_6984738353841657443_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=3zgawYtBvDoQ7kNvwFKC-pN&_nc_oc=AdkUxppVeAlmQOosIKkdm6HrvKlGZAFLD4UqfJ4HsRTvVW9aJjB8RjzDC0Rqv6hcXHfP8VgjZkGZ32vto43Yt_yD&_nc_zt=23&_nc_ht=scontent-iad3-2.xx&_nc_gid=rd6QjCEleWrf3RczG4yUiA&oh=00_Afjo4l7hH68v8K4xR4kRvOiKc-VfJFgbj2og7jKtHqgFkQ&oe=6927221F" />
+                    src={campaign.src} />
                    <div className="absolute top-4 right-4">
                      <Badge className="bg-white/90 text-blue-700 hover:bg-white shadow-sm border-none">
                        Active Campaign

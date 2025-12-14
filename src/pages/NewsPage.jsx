@@ -17,7 +17,7 @@ const NewsPage = () => {
   const fetchArticles = async () => {
     try {
       const { data, error } = await supabase
-        .from('news_articles')
+        .from('news')
         .select('*')
         .order('published_date', { ascending: false });
 
@@ -91,9 +91,9 @@ const NewsPage = () => {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
               >
-                {article.image_url && (
+                {(article.image_url || article.featured_image || article.image) && (
                   <img
-                    src={article.image_url}
+                    src={article.image_url || article.featured_image || article.image}
                     alt={article.title}
                     className="w-full h-48 object-cover"
                   />
@@ -108,17 +108,17 @@ const NewsPage = () => {
                     {article.title}
                   </h2>
                   <p className="text-gray-600 mb-4 line-clamp-3">
-                    {article.content}
+                    {article.content || article.excerpt || ''}
                   </p>
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <div className="flex items-center">
                       <User className="h-4 w-4 mr-1" />
-                      <span>{article.author}</span>
+                      <span>{article.author || article.byline || 'Unknown'}</span>
                     </div>
                     <div className="flex items-center">
                       <Calendar className="h-4 w-4 mr-1" />
                       <span>
-                        {new Date(article.published_date).toLocaleDateString()}
+                        {new Date(article.published_date || article.created_at || Date.now()).toLocaleDateString()}
                       </span>
                     </div>
                   </div>

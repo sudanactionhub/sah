@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Redirecting...</title>
+</head>
+<body>
+  <script>
+    // GitHub Pages hack: fetch the root index and replace document
+    fetch('/').then(function(resp){
+      return resp.text();
+    }).then(function(html){
+      document.open();
+      document.write(html);
+      document.close();
+    }).catch(function(){
+      // Fallback: go to root (will preserve fragment/hash)
+      window.location.replace('/');
+    });
+  </script>
+</body>
+</html>
