@@ -64,37 +64,12 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Organization Directory', path: '/organization-directory' },
+
     {
-      label: 'Reporting',
-      items: [
-        { name: 'News', path: '/news' },
-        { name: 'Research Publications', path: '/research' },
-        { name: 'Evidence Collection', path: '/evidence-collection' },
-      ],
-    },
-    {
-      label: 'Campaigns',
-      items: [
-        { name: 'Advocacy', path: '/advocacy' },
-        // Updated humanitarian link
-        { name: 'Humanitarian', path: '/humanitarian' },
-        { name: 'Diaspora', path: '/diaspora' },
-      ],
-    },
-    {
-      label: 'Events',
-      items: [
-        { name: 'Events', path: '/event-programming' },
-        { name: 'Events Calendar', path: '/events' },
-      ],
-    },
-    {
-      label: 'About',
-      items: [
-        { name: 'About', path: '/about' },
-        { name: 'Contact', path: '/contact' },
-      ],
-    },
+      name: 'Events', path: '/event-programming' },
+      
+    
+    { name: 'Contact Us', path: '/contact' }
   ];
 
   const isActive = (path) => pathname === path;
@@ -108,7 +83,7 @@ const Navigation = () => {
             <div className="bg-blue-50 p-2 rounded-full group-hover:bg-blue-100 transition-colors">
               <Heart className="h-6 w-6 text-blue-600 fill-blue-600" />
             </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight hidden sm:inline">Sudan Action Hub</span>
+            <span className="text-xl font-bold text-gray-900 tracking-tight hidden sm:inline">Sudan Hub</span>
             <span className="text-xl font-bold text-gray-900 sm:hidden">SAH</span>
           </Link>
 

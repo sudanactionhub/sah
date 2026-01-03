@@ -109,7 +109,7 @@ const PastInitiativesPage = () => {
 
   return <>
       <Helmet>
-        <title>Events and Programming | Sudan Action Hub</title>
+        <title>Events and Programming | Sudan Hub</title>
         <meta name="description" content="Explore our impactful campaigns, events, and programming dedicated to supporting Sudan. See the difference we've made together." />
         <meta name="keywords" content="Sudan initiatives, Sudan events, advocacy history, humanitarian initiatives, Sudan Action Hub, programming" />
         <link rel="canonical" href="https://sudan-action-hub.com/event-programming" />
@@ -126,8 +126,8 @@ const PastInitiativesPage = () => {
         }} transition={{
           duration: 0.8
         }}>
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4">Events and Programming</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">Efforts to drive change and support Sudan across the United States.</p>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4"> Past Events</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto"> Explore our impactful campaigns, events, and programming dedicated to supporting Sudanese communities and efforts. See the difference we've made together.</p>
           </motion.div>
         </div>
       </div>

@@ -309,8 +309,7 @@ const OrganizationDirectoryPage = () => {
                         </div>
                         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl tracking-tight mb-6">Organization Directory</h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Connect with organizations working on advocacy, humanitarian aid, and research related to Sudan. 
-                            Find groups by focus area, location, and type.
+                            Find and connect with Sudanese organizations across the globe.
                         </p>
                         <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-500">
                             <Link to="/contact" className="hover:text-blue-600 transition-colors">
