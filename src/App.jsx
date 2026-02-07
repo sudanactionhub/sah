@@ -27,6 +27,7 @@ import DonationSuccessPage from '@/pages/DonationSuccessPage';
 import PastInitiativesPage from '@/pages/PastInitiativesPage';
 import EventDetailPage from '@/pages/EventDetailPage';
 import DiasporaSupportPage from '@/pages/DiasporaSupportPage';
+import JoinUsPage from '@/pages/JoinUsPage';
 
 // Auth Pages
 import LoginPage from '@/pages/auth/LoginPage';
@@ -68,6 +69,7 @@ function App() {
 								<Route path="/donation-success" element={<DonationSuccessPage />} />
 								<Route path="/contact" element={<ContactPage />} />
 								<Route path="/about" element={<AboutPage />} />
+								<Route path="/joinus" element={<JoinUsPage />} />
 
 								{/* Auth Routes */}
 								<Route path="/login" element={<LoginPage />} />
