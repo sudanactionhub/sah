@@ -81,7 +81,7 @@ const ContactPage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1557844029-b91d4ca7426d?w=1200&h=630&fit=crop" />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const ContactPage = () => {
           >
             <Mail className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               We'd love to hear from you. Reach out for partnerships, inquiries, or to get involved.
             </p>
           </motion.div>
@@ -110,21 +110,21 @@ const ContactPage = () => {
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <Mail className="h-6 w-6 text-blue-600 mr-4 mt-1" />
+                <Mail className="h-6 w-6 text-green-600 mr-4 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p className="text-gray-600">sudanactionhub@gmail.com</p>
+                  <h3 href="mailto:admin@sudanhub.org" className="font-semibold text-gray-900 mb-1">Email</h3>
+                  <a href="mailto:admin@sudanhub.org" className="text-gray-600 hover:text-green-600 transition-colors">admin@sudanhub.org</a>
                 </div>
               </div>
               <div className="flex items-start">
-                <Phone className="h-6 w-6 text-blue-600 mr-4 mt-1" />
+                <Phone className="h-6 w-6 text-green-600 mr-4 mt-1" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <p className="text-gray-600">+1 (202) 998-2209</p>
+                  <p className="text-gray-600">+1 (240) 962-9616</p>
                 </div>
               </div>
               <div className="flex items-start">
-                <MapPin className="h-6 w-6 text-blue-600 mr-4 mt-1" />
+                <MapPin className="h-6 w-6 text-green-600 mr-4 mt-1" />
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                   <p className="text-gray-600">
@@ -153,7 +153,7 @@ const ContactPage = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
 
@@ -167,7 +167,7 @@ const ContactPage = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
 
@@ -180,7 +180,7 @@ const ContactPage = () => {
                   name="organization"
                   value={formData.organization}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
 
@@ -194,7 +194,7 @@ const ContactPage = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
 
@@ -208,14 +208,14 @@ const ContactPage = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full bg-green-600 hover:bg-green-700"
               >
                 {loading ? 'Sending...' : 'Send Message'}
                 <Send className="ml-2 h-5 w-5" />

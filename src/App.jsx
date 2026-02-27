@@ -19,6 +19,7 @@ import EventsPage from '@/pages/EventsPage';
 import HumanitarianPage from '@/pages/HumanitarianPage';
 import GalaPage from '@/pages/GalaPage';
 import DonationsPage from '@/pages/DonationsPage';
+import DonatePage from '@/pages/DonatePage';
 import ContactPage from '@/pages/ContactPage';
 import AboutPage from '@/pages/AboutPage';
 import OrganizationDirectoryPage from '@/pages/OrganizationDirectoryPage';
@@ -28,6 +29,7 @@ import PastInitiativesPage from '@/pages/PastInitiativesPage';
 import EventDetailPage from '@/pages/EventDetailPage';
 import DiasporaSupportPage from '@/pages/DiasporaSupportPage';
 import JoinUsPage from '@/pages/JoinUsPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 
 // Auth Pages
 import LoginPage from '@/pages/auth/LoginPage';
@@ -66,10 +68,13 @@ function App() {
 								<Route path="/diaspora" element={<DiasporaSupportPage />} />
 								<Route path="/gala" element={<GalaPage />} />
 								<Route path="/donations" element={<DonationsPage />} />
+								<Route path="/donate" element={<DonatePage />} />
+
 								<Route path="/donation-success" element={<DonationSuccessPage />} />
 								<Route path="/contact" element={<ContactPage />} />
 								<Route path="/about" element={<AboutPage />} />
 								<Route path="/joinus" element={<JoinUsPage />} />
+								<Route path="/privacypolicy" element={<PrivacyPolicyPage />} />
 
 								{/* Auth Routes */}
 								<Route path="/login" element={<LoginPage />} />

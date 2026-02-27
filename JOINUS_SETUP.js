@@ -128,7 +128,7 @@
  * 
  * To change form appearance:
  * - Modify Tailwind classes in JoinUsPage.jsx
- * - The component uses the project's existing color scheme (blue-600, etc.)
+ * - The component uses the project's existing color scheme (green-600, etc.)
  * - All spacing tokens are consistent with the rest of the site
  * 
  * =============================================================================

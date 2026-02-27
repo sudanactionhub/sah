@@ -10,22 +10,26 @@ const HomePage = () => {
     icon: FileText,
     title: 'Research & Documentation',
     description: 'Academic publications and comprehensive research on human rights violations in Sudan.',
-    link: '/research'
+    link: '/research',
+    action: 'Learn More →'
   }, {
     icon: Shield,
     title: 'Evidence Collection',
-    description: 'Secure platform for documenting and preserving evidence of atrocities in Darfur.',
-    link: '/evidence-collection'
+    description: 'Our Secure platform for documenting and preserving evidence of huaman rights atrocities in Darfur.',
+    link: '/evidence-collection',
+    action: 'Learn More →'
   }, {
     icon: Users,
-    title: 'Advocacy & Action',
-    description: 'Join our advocacy efforts and make your voice heard for the people of Sudan.',
-    link: '/advocacy'
+    title: 'Join Our Team',
+    description: 'Contribute towards our advocacy efforts and make your voice heard for the people of Sudan.',
+    link: '/JoinUs',
+    action: 'Join Us →'
   }, {
     icon: Heart,
-    title: 'Humanitarian Aid',
-    description: 'Support our campaigns providing essential aid and relief to affected communities.',
-    link: '/humanitarian'
+    title: 'Support our Work',
+    description: 'Support our latest campaign with Hope & Haven, providing essential aid and relief to affected communities.',
+    link: '/donate',
+    action: 'Donate Now →'
   }];
   return <>
       <Helmet>
@@ -49,7 +53,7 @@ const HomePage = () => {
         <meta name="twitter:image" content="https://imgur.com/a/EpN8GtN" />
       </Helmet>
 
-      <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-20 lg:py-32">
+      <section className="relative bg-gradient-to-br from-[#501c21] to[#501c21] to-[#700c16] text-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{
@@ -62,18 +66,18 @@ const HomePage = () => {
             duration: 0.8
           }}>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">Sudan Action Hub (SAH)</h1>
-              <p className="text-xl lg:text-2xl mb-8 text-blue-100">Protecting Sudan’s people, pursuing justice, and preserving truth.</p>
+              <p className="text-xl lg:text-2xl mb-8 text-red-50">Protecting Sudan’s people, pursuing justice, and preserving truth.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link to="/donations"> {/* Reverted to internal link */}
-                    <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold">
+                  <Link to="/donate"> {/* Reverted to internal link */}
+                    <Button size="lg" className="bg-white text-red-800 hover:bg-red-50 font-semibold">
                       Donate Now
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 </div>
-                <Link to="/past-initiatives">
-                  <Button size="lg" variant="outline" className="bg-blue-800 border-white text-white hover:bg-blue-700">
+                <Link to="/event-programming">
+                  <Button size="lg" variant="outline" className="bg-red-900 border-white text-white hover:text-white hover:bg-red-700">
                     Our Work
                   </Button>
                 </Link>
@@ -106,10 +110,10 @@ const HomePage = () => {
         }} viewport={{
           once: true
         }} className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold text-black-900 mb-4">
               Our Mission
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Sudan Action Hub mobilizes information, networks, and practical tools to support humanitarian relief, document human rights abuses, strengthen advocacy, and coordinate global action for the people of Sudan — with particular attention to victims of violence in Darfur and other affected regions. We connect individuals, grassroots groups, NGOs, researchers, and policymakers so that evidence-based advocacy, safe collaboration, and life-saving assistance can be scaled effectively.</p>
+            <p className="text-xl text-black-600 max-w-3xl mx-auto">Sudan Action Hub mobilizes information, networks, and practical tools to support humanitarian relief, document human rights abuses, strengthen advocacy, and coordinate global action for the people of Sudan — with particular attention to victims of violence in Darfur and other affected regions. We connect individuals, grassroots groups, NGOs, researchers, and policymakers so that evidence-based advocacy, safe collaboration, and life-saving assistance can be scaled effectively.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -126,15 +130,15 @@ const HomePage = () => {
           }}>
                 <Link to={feature.link}>
                   <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow h-full group">
-                    <feature.icon className="h-12 w-12 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
+                    <feature.icon className="h-12 w-12 text-green-600 mb-4 group-hover:scale-110 transition-transform" />
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       {feature.title}
                     </h3>
                     <p className="text-gray-600 mb-4">
                       {feature.description}
                     </p>
-                    <span className="text-blue-600 font-medium group-hover:underline">
-                      Learn More →
+                    <span className="text-green-700 font-medium group-hover:underline">
+                      {feature.action} 
                     </span>
                   </div>
                 </Link>
@@ -173,7 +177,7 @@ const HomePage = () => {
                 Our comprehensive evidence collection and research publications provide crucial documentation of human rights violations in Sudan, supporting international advocacy efforts and legal accountability.
               </p>
               <Link to="/evidence-collection">
-                <Button className="bg-blue-600 hover:bg-blue-700">
+                <Button className="bg-green-700 hover:bg-green-500">
                   Explore Evidence Collection
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

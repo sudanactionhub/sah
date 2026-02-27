@@ -57,7 +57,7 @@ const NewsPage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=1200&h=630&fit=crop" />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,7 @@ const NewsPage = () => {
             className="text-center"
           >
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Latest News</h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-green-100">
               Stay informed with professional reporting on Sudan
             </p>
           </motion.div>
@@ -100,7 +100,7 @@ const NewsPage = () => {
                 )}
                 <div className="p-6">
                   {article.category && (
-                    <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                    <span className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                       {article.category}
                     </span>
                   )}

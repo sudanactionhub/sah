@@ -83,7 +83,7 @@ const EvidencePage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1589998059171-988d887df646?w=1200&h=630&fit=crop" />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ const EvidencePage = () => {
           >
             <Shield className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Evidence Collection</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               A secure platform for documenting human rights violations in Sudan.
             </p>
           </motion.div>
@@ -103,13 +103,13 @@ const EvidencePage = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8"
+          className="bg-green-50 border-l-4 border-green-600 p-6 mb-8"
         >
           <div className="flex items-start">
-            <AlertCircle className="h-6 w-6 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="h-6 w-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-2">Security & Confidentiality</h3>
-              <p className="text-blue-800">
+              <h3 className="font-semibold text-green-900 mb-2">Security & Confidentiality</h3>
+              <p className="text-green-800">
                 All submissions are encrypted and stored securely. Your information will be kept confidential and used only for documentation and advocacy purposes. You may submit anonymously if preferred.
               </p>
             </div>
@@ -134,7 +134,7 @@ const EvidencePage = () => {
                   name="submitter_name"
                   value={formData.submitter_name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Leave blank to remain anonymous"
                 />
               </div>
@@ -147,7 +147,7 @@ const EvidencePage = () => {
                   name="submitter_email"
                   value={formData.submitter_email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="For follow-up only"
                 />
               </div>
@@ -163,7 +163,7 @@ const EvidencePage = () => {
                   name="incident_date"
                   value={formData.incident_date}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
               <div>
@@ -175,7 +175,7 @@ const EvidencePage = () => {
                   name="location"
                   value={formData.location}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="City, region, or coordinates"
                 />
               </div>
@@ -189,7 +189,7 @@ const EvidencePage = () => {
                 name="evidence_type"
                 value={formData.evidence_type}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
               >
                 <option value="testimony">Testimony</option>
                 <option value="photo">Photo</option>
@@ -209,7 +209,7 @@ const EvidencePage = () => {
                 onChange={handleChange}
                 required
                 rows={6}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="Please provide detailed information about the incident..."
               />
             </div>
@@ -217,7 +217,7 @@ const EvidencePage = () => {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700"
+              className="w-full bg-green-600 hover:bg-green-700"
             >
               {loading ? 'Submitting...' : 'Submit Evidence Securely'}
               <Upload className="ml-2 h-5 w-5" />

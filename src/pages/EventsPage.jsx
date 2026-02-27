@@ -15,7 +15,7 @@ import { toZonedTime, format } from 'date-fns-tz';
 import { useNavigate } from 'react-router-dom';
 
 const EVENT_TYPES = {
-  'Press Interviews': { color: 'bg-blue-500', text: 'text-blue-600', hover: 'hover:bg-blue-600', border: 'border-blue-200' },
+  'Press Interviews': { color: 'bg-green-500', text: 'text-green-600', hover: 'hover:bg-green-600', border: 'border-green-200' },
   'Protests': { color: 'bg-red-500', text: 'text-red-600', hover: 'hover:bg-red-600', border: 'border-red-200' },
   'Fundraisers': { color: 'bg-green-500', text: 'text-green-600', hover: 'hover:bg-green-600', border: 'border-green-200' },
   'Workshops & Teach-Ins': { color: 'bg-orange-500', text: 'text-orange-600', hover: 'hover:bg-orange-600', border: 'border-orange-200' },
@@ -95,9 +95,9 @@ const MonthView = ({ date, events, onEventClick, timezone }) => {
           return (
             <div
               key={day.toString()}
-              className={`border-b border-r border-gray-200 p-2 h-32 md:h-40 overflow-auto ${!isSameMonth(day, monthStart) ? 'bg-gray-50 text-gray-400' : 'bg-white'} ${isSameDay(day, toZonedTime(new Date(), timezone)) ? 'bg-blue-50' : ''}`}
+              className={`border-b border-r border-gray-200 p-2 h-32 md:h-40 overflow-auto ${!isSameMonth(day, monthStart) ? 'bg-gray-50 text-gray-400' : 'bg-white'} ${isSameDay(day, toZonedTime(new Date(), timezone)) ? 'bg-green-50' : ''}`}
             >
-              <div className={`font-medium ${isSameDay(day, toZonedTime(new Date(), timezone)) ? 'text-blue-600 font-bold' : 'text-gray-900'}`}>{formatBase(day, 'd')}</div>
+              <div className={`font-medium ${isSameDay(day, toZonedTime(new Date(), timezone)) ? 'text-green-600 font-bold' : 'text-gray-900'}`}>{formatBase(day, 'd')}</div>
               <div className="mt-1 space-y-1">
                 {dayEvents.slice(0, 3).map(event => {
                    const theme = EVENT_TYPES[event.event_type] || DEFAULT_THEME;
@@ -135,9 +135,9 @@ const WeekView = ({ date, events, onEventClick, timezone }) => {
             <div className="grid grid-cols-7 flex-grow">
                 {days.map((day) => (
                     <div key={day.toString()} className="border-l border-gray-200 relative">
-                        <div className={`text-center py-2 border-b border-gray-200 ${isSameDay(day, todayInTz) ? 'bg-blue-50' : ''}`}>
+                        <div className={`text-center py-2 border-b border-gray-200 ${isSameDay(day, todayInTz) ? 'bg-green-50' : ''}`}>
                             <div className="font-semibold text-gray-700">{formatBase(day, 'E')}</div>
-                            <div className={`text-lg font-bold ${isSameDay(day, todayInTz) ? 'text-blue-600' : 'text-gray-900'}`}>{formatBase(day, 'd')}</div>
+                            <div className={`text-lg font-bold ${isSameDay(day, todayInTz) ? 'text-green-600' : 'text-gray-900'}`}>{formatBase(day, 'd')}</div>
                         </div>
                         <div className="relative">
                           {hours.map(hour => <div key={hour} className="h-16 border-b border-gray-200"></div>)}
@@ -450,7 +450,7 @@ const EventsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <Calendar className="h-16 w-16 mx-auto mb-4 text-blue-600" />
+            <Calendar className="h-16 w-16 mx-auto mb-4 text-green-600" />
             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-900">Events Calendar</h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Join us at our events and help make a difference for Sudan
@@ -510,7 +510,7 @@ const EventsPage = () => {
                           <Filter className="mr-2 h-4 w-4" /> 
                           Filters
                           {(activeFilters.length !== Object.keys(EVENT_TYPES).length || locationFilter.length > 0) && (
-                            <span className="ml-1 flex h-2 w-2 rounded-full bg-blue-600" />
+                            <span className="ml-1 flex h-2 w-2 rounded-full bg-green-600" />
                           )}
                         </Button>
                     </DropdownMenuTrigger>

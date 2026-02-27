@@ -1,7 +1,8 @@
 import react from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
-import { Megaphone, Users, FileText, Share2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Megaphone, Users, FileText, Share2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 const AdvocacyPage = () => {
@@ -41,11 +42,7 @@ const AdvocacyPage = () => {
     title: 'Contact Representatives',
     description: 'Urge your elected officials to take action on Sudan'
   }];
-  const handleAction = () => {
-    toast({
-      title: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀"
-    });
-  };
+
   return <>
       <Helmet>
         <title>Advocacy for Sudan - Take Action | Sudan Action Hub</title>
@@ -70,7 +67,7 @@ const AdvocacyPage = () => {
         {/* <meta name="twitter:image" content="https://images.unsplash.com/photo-1590812572985-65983f15e839?w=1200&h=630&fit=crop" /> */}
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{
           opacity: 0,
@@ -81,7 +78,7 @@ const AdvocacyPage = () => {
         }} className="text-center">
             <Megaphone className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Advocacy & Action</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Together, we can amplify the voices of those affected and demand justice
             </p>
           </motion.div>
@@ -117,12 +114,12 @@ const AdvocacyPage = () => {
           }} transition={{
             delay: index * 0.1
           }} className="bg-gray-50 rounded-lg p-6">
-                <div className="text-blue-600 font-semibold mb-2">{action.date}</div>
+                <div className="text-green-600 font-semibold mb-2">{action.date}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {action.title}
                 </h3>
                 <p className="text-gray-600 mb-4">{action.description}</p>
-                <div className="bg-blue-100 text-blue-800 font-semibold px-4 py-2 rounded-md inline-block">
+                <div className="bg-green-100 text-green-800 font-semibold px-4 py-2 rounded-md inline-block">
                   {action.impact}
                 </div>
               </motion.div>)}
@@ -159,7 +156,7 @@ const AdvocacyPage = () => {
           }} transition={{
             delay: index * 0.1
           }} className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-                <way.icon className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                <way.icon className="h-12 w-12 text-green-600 mx-auto mb-4" />
                 <h3 className="text-lg font-bold text-gray-900 mb-2">
                   {way.title}
                 </h3>
@@ -176,9 +173,11 @@ const AdvocacyPage = () => {
         }} viewport={{
           once: true
         }} className="text-center mt-12">
-            <Button size="lg" onClick={handleAction} className="bg-blue-600 hover:bg-blue-700">
-              Take Action Now
+           <Link to="/JoinUs">
+            <Button size="lg" className="bg-green-600 hover:bg-green-700">
+              Join Our Advocacy Efforts
             </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

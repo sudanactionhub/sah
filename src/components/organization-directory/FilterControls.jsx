@@ -223,8 +223,8 @@ const FilterControls = ({
                             className={cn(
                                 "h-12 px-6 w-full md:w-auto justify-between md:justify-center shadow-sm transition-all",
                                 filtersOpen 
-                                    ? "bg-blue-600 text-white hover:bg-blue-700 border-transparent" 
-                                    : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:text-blue-600"
+                                    ? "bg-green-600 text-white hover:bg-green-700 border-transparent" 
+                                    : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 hover:text-green-600"
                             )}
                         >
                             <div className="flex items-center">
@@ -248,7 +248,7 @@ const FilterControls = ({
                     <div className="bg-white rounded-xl border shadow-sm p-6 mt-2 animate-in slide-in-from-top-2 duration-200">
                         <div className="flex justify-between items-center mb-6 pb-4 border-b">
                             <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-                                <Filter className="h-5 w-5 mr-2 text-blue-600" />
+                                <Filter className="h-5 w-5 mr-2 text-green-600" />
                                 Active Filters
                             </h3>
                             <Button 
@@ -315,7 +315,7 @@ const FilterControls = ({
             <div className="bg-white p-6 rounded-xl border shadow-sm">
                 <div className="flex justify-between items-center mb-4">
                     <Label className="text-base font-semibold text-gray-900">Founding Year</Label>
-                    <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                    <span className="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">
                         {foundedYearRange[0]} - {foundedYearRange[1]}
                     </span>
                 </div>

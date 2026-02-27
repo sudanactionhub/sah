@@ -62,13 +62,13 @@ const UserDashboard = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Database className="h-5 w-5 text-blue-600" />
+                    <Database className="h-5 w-5 text-green-600" />
                     Enhanced Organization Directory
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="mb-4">As a verified partner, you can view direct contact details and operational specifics for all organizations.</p>
-                  <Link to="/organization-directory" className="text-blue-600 hover:underline font-medium">
+                  <Link to="/organization-directory" className="text-green-600 hover:underline font-medium">
                     Go to Directory (Admin View Enabled)
                   </Link>
                 </CardContent>

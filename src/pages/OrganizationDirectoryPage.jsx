@@ -305,19 +305,21 @@ const OrganizationDirectoryPage = () => {
                 <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                         <div className="bg-white p-3 rounded-2xl shadow-sm inline-block mb-6">
-                            <List className="h-10 w-10 text-blue-600" />
+                            <List className="h-10 w-10 text-green-600" />
                         </div>
                         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl tracking-tight mb-6">Organization Directory</h1>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                             Connect with organizations working on advocacy, humanitarian aid, and research related to Sudan. 
                             Find groups by focus area, location, and type.
                         </p>
-                        <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm font-medium text-gray-500">
-                            <Link to="/contact" className="hover:text-blue-600 transition-colors">
+                        <p className="mt-6 flex flex-wrap justify-center text-sm font-medium text-gray-500">
+                                Sudan Action Hub does not endorse any of these organizations nor do we vouch for their credibility or legitamacy. 
+                                </p>
+                          {/*
+                            <Link to="/contact" className="text-green-600 hover:text-green-600 transition-colors">
                                 Submit an Organization
                             </Link>
-                            <span className="text-gray-300">|</span>
-                        </div>
+                            */}
                     </motion.div>
                 </div>
             </div>
@@ -337,7 +339,7 @@ const OrganizationDirectoryPage = () => {
 
                 {loading && (
                     <div className="flex justify-center py-20">
-                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
                     </div>
                 )}
                 
@@ -365,7 +367,7 @@ const OrganizationDirectoryPage = () => {
                                 <p className="text-gray-500 mt-2">Try adjusting your search or filters to find what you're looking for.</p>
                                 <button 
                                     onClick={resetFilters}
-                                    className="mt-4 text-blue-600 font-medium hover:underline"
+                                    className="mt-4 text-green-600 font-medium hover:underline"
                                 >
                                     Clear all filters
                                 </button>

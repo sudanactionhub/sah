@@ -275,7 +275,7 @@ const ResearchPage = () => {
               viewport={{ once: true }}
             >
               <div className="flex items-center mb-4">
-                <Eye className="h-8 w-8 text-blue-600 mr-3" />
+                <Eye className="h-8 w-8 text-green-600 mr-3" />
                 <h2 className="text-3xl font-bold text-gray-900">What We Will Do</h2>
               </div>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
@@ -308,7 +308,7 @@ const ResearchPage = () => {
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <Scale className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+            <Scale className="h-12 w-12 text-green-600 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Methodology</h2>
             <p className="text-gray-600">
               We adhere to international standards for human rights documentation, including the Berkeley Protocol on Digital Open Source Investigations. Our priority is the "Do No Harm" principle, ensuring the safety and dignity of witnesses and survivors above all else. All data is encrypted and stored on secure, offshore servers.
@@ -321,7 +321,7 @@ const ResearchPage = () => {
       <div id="map" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
-            <MapIcon className="mr-3 h-8 w-8 text-blue-600" />
+            <MapIcon className="mr-3 h-8 w-8 text-green-600" />
             Conflict Monitor Map
           </h2>
           <div className="h-[500px] w-full rounded-xl overflow-hidden shadow-lg border border-gray-200 z-0 relative">
@@ -357,7 +357,7 @@ const ResearchPage = () => {
       <div className="bg-gray-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Crisis Timeline</h2>
-          <div className="relative border-l-4 border-blue-200 ml-6 md:ml-auto md:mr-auto md:w-2/3 space-y-12">
+          <div className="relative border-l-4 border-green-200 ml-6 md:ml-auto md:mr-auto md:w-2/3 space-y-12">
             {[
               { date: 'April 15, 2023', title: 'Conflict Erupts', desc: 'Fighting breaks out between SAF and RSF in Khartoum.' },
               { date: 'May 2023', title: 'Darfur Escalation', desc: 'Violence spreads to West Darfur, raising genocide alarms.' },
@@ -365,8 +365,8 @@ const ResearchPage = () => {
               { date: 'Present', title: 'Ongoing Crisis', desc: 'Millions displaced, facing hunger and lack of medical aid.' }
             ].map((item, index) => (
               <div key={index} className="relative pl-8">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                <span className="text-sm font-bold text-blue-600 uppercase tracking-wider">{item.date}</span>
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-green-600 border-4 border-white shadow-sm"></div>
+                <span className="text-sm font-bold text-green-600 uppercase tracking-wider">{item.date}</span>
                 <h3 className="text-xl font-bold text-gray-900 mt-1">{item.title}</h3>
                 <p className="text-gray-600 mt-2">{item.desc}</p>
               </div>
@@ -381,7 +381,7 @@ const ResearchPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-8">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-2 flex items-center">
-                <FileText className="mr-3 h-8 w-8 text-blue-600" />
+                <FileText className="mr-3 h-8 w-8 text-green-600" />
                 Publications & Reports
               </h2>
               <p className="text-gray-600">Access our latest findings and documentation.</p>
@@ -499,7 +499,7 @@ const ResearchPage = () => {
                 required
                 value={evidenceForm.description}
                 onChange={handleEvidenceChange}
-                className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="Please describe what happened in as much detail as possible..."
               />
             </div>
@@ -530,7 +530,7 @@ const ResearchPage = () => {
       <div id="partner" className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+            <Users className="h-12 w-12 text-green-600 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Partner Application</h2>
             <p className="text-gray-600">
               We collaborate with NGOs, academic institutions, and grassroots organizations. 
@@ -594,12 +594,12 @@ const ResearchPage = () => {
                 required
                 value={partnerForm.collaboration_interest}
                 onChange={handlePartnerChange}
-                className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="Tell us how you'd like to work together..."
               />
             </div>
 
-            <Button type="submit" disabled={isSubmittingPartner} className="w-full bg-blue-600 hover:bg-blue-700">
+            <Button type="submit" disabled={isSubmittingPartner} className="w-full bg-green-600 hover:bg-green-700">
               {isSubmittingPartner ? 'Submitting...' : 'Submit Application'}
             </Button>
           </form>

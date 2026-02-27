@@ -76,7 +76,7 @@ const GalaPage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1702342456570-2a68dcd8efba?w=1200&h=630&fit=crop" />
       </Helmet>
 
-      <section className="relative bg-gradient-to-br from-blue-900 via-gray-900 to-black text-white py-20 lg:py-32">
+      <section className="relative bg-gradient-to-br from-green-900 via-gray-900 to-black text-white py-20 lg:py-32">
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <img class="absolute inset-0 w-full h-full object-cover opacity-30" alt="Elegant gala setting with ambient lighting" src="https://images.unsplash.com/photo-1702342456570-2a68dcd8efba" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -86,7 +86,7 @@ const GalaPage = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-4">Sudan Humanitarian Gala</h1>
-            <p className="text-xl lg:text-2xl text-blue-200 max-w-3xl mx-auto">
+            <p className="text-xl lg:text-2xl text-green-200 max-w-3xl mx-auto">
               An evening of solidarity and action in Washington, D.C. to raise critical funds and awareness for humanitarian assistance in Sudan.
             </p>
           </motion.div>
@@ -101,17 +101,17 @@ const GalaPage = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <motion.div initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} transition={{delay:0.1}} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
-              <Calendar className="h-12 w-12 text-blue-600 mb-4" />
+              <Calendar className="h-12 w-12 text-green-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Date & Time</h3>
               <p className="text-gray-600">To Be Announced</p>
             </motion.div>
             <motion.div initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} transition={{delay:0.2}} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
-              <MapPin className="h-12 w-12 text-blue-600 mb-4" />
+              <MapPin className="h-12 w-12 text-green-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Location</h3>
               <p className="text-gray-600">Washington, D.C.</p>
             </motion.div>
             <motion.div initial={{opacity:0, y:20}} whileInView={{opacity:1, y:0}} transition={{delay:0.3}} className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md">
-              <Award className="h-12 w-12 text-blue-600 mb-4" />
+              <Award className="h-12 w-12 text-green-600 mb-4" />
               <h3 className="text-xl font-semibold mb-2">Purpose</h3>
               <p className="text-gray-600">Fundraising & Awareness for Sudan</p>
             </motion.div>
@@ -131,7 +131,7 @@ const GalaPage = () => {
           <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <Card>
               <CardHeader>
-                <CardTitle className="flex items-center"><Ticket className="mr-3 h-6 w-6 text-blue-600"/> Pre-Order Your Tickets</CardTitle>
+                <CardTitle className="flex items-center"><Ticket className="mr-3 h-6 w-6 text-green-600"/> Pre-Order Your Tickets</CardTitle>
                 <CardDescription>Reserve your place at this landmark event.</CardDescription>
               </CardHeader>
               <CardContent>
@@ -148,7 +148,7 @@ const GalaPage = () => {
                     <Label htmlFor="num_tickets">Number of Tickets</Label>
                     <Input id="num_tickets" type="number" min="1" value={preorderData.num_tickets} onChange={handlePreorderChange} required />
                   </div>
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={preorderLoading}>
+                  <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={preorderLoading}>
                     {preorderLoading ? 'Submitting...' : 'Reserve My Spot'}
                   </Button>
                 </form>
@@ -163,7 +163,7 @@ const GalaPage = () => {
            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="order-2 lg:order-1">
              <Card>
               <CardHeader>
-                <CardTitle className="flex items-center"><Handshake className="mr-3 h-6 w-6 text-blue-600"/> Partner With Us</CardTitle>
+                <CardTitle className="flex items-center"><Handshake className="mr-3 h-6 w-6 text-green-600"/> Partner With Us</CardTitle>
                 <CardDescription>Inquire about sponsorship and collaboration opportunities.</CardDescription>
               </CardHeader>
               <CardContent>
@@ -188,7 +188,7 @@ const GalaPage = () => {
                     <Label htmlFor="message">Message</Label>
                     <Textarea id="message" placeholder="Tell us how you'd like to get involved..." value={sponsorshipData.message} onChange={handleSponsorshipChange} required />
                   </div>
-                  <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={sponsorshipLoading}>
+                  <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={sponsorshipLoading}>
                     {sponsorshipLoading ? 'Submitting...' : 'Submit Inquiry'}
                   </Button>
                 </form>

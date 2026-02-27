@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children, requiredRole }) => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+        <Loader2 className="h-8 w-8 animate-spin text-green-600" />
       </div>
     );
   }
@@ -25,7 +25,7 @@ const ProtectedRoute = ({ children, requiredRole }) => {
     if (!profile) {
        return (
         <div className="flex items-center justify-center min-h-screen">
-            <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+            <Loader2 className="h-8 w-8 animate-spin text-green-600" />
         </div>
        );
     }

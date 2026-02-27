@@ -130,7 +130,7 @@ const DonationsPage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1618224304910-1845347989c2?w=1200&h=630&fit=crop" />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -139,7 +139,7 @@ const DonationsPage = () => {
           >
             <Heart className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Make a Donation</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Your generosity directly supports humanitarian aid and advocacy efforts in Sudan.
             </p>
           </motion.div>
@@ -162,7 +162,7 @@ const DonationsPage = () => {
                 name="campaign_id"
                 value={formData.campaign_id}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
               >
                 <option value="">General Fund</option>
                 {campaigns.map((campaign) => (
@@ -185,8 +185,8 @@ const DonationsPage = () => {
                     onClick={() => setFormData({ ...formData, amount: amount.toString() })}
                     className={`px-4 py-2 border rounded-md font-semibold transition-colors ${
                       formData.amount === amount.toString()
-                        ? 'bg-blue-600 text-white border-blue-600'
-                        : 'border-gray-300 text-gray-700 hover:border-blue-600'
+                        ? 'bg-green-600 text-white border-green-600'
+                        : 'border-gray-300 text-gray-700 hover:border-green-600'
                     }`}
                   >
                     ${amount}
@@ -202,7 +202,7 @@ const DonationsPage = () => {
                   onChange={handleChange}
                   min="1"
                   step="0.01"
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Custom amount"
                 />
               </div>
@@ -219,7 +219,7 @@ const DonationsPage = () => {
                   value={formData.donor_name}
                   onChange={handleChange}
                   disabled={formData.anonymous}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent disabled:bg-gray-100"
                 />
               </div>
               <div>
@@ -232,7 +232,7 @@ const DonationsPage = () => {
                   value={formData.donor_email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
               </div>
             </div>
@@ -246,7 +246,7 @@ const DonationsPage = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="Leave a message of support..."
               />
             </div>
@@ -257,7 +257,7 @@ const DonationsPage = () => {
                 name="anonymous"
                 checked={formData.anonymous}
                 onChange={handleChange}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
               />
               <label className="ml-2 block text-sm text-gray-700">
                 Make this donation anonymous
@@ -267,7 +267,7 @@ const DonationsPage = () => {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-3"
+              className="w-full bg-green-600 hover:bg-green-700 text-lg py-3"
             >
               {loading ? 'Redirecting to payment...' : `Proceed to Payment`}
               <Heart className="ml-2 h-5 w-5" />

@@ -20,8 +20,8 @@ const DropdownNavItem = ({ label, items, pathname }) => {
         <button
           className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap focus:outline-none ${
             isParentActive
-              ? 'bg-blue-50 text-blue-700'
-              : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+              ? 'bg-green-50 text-black font-semibold'
+              : 'text-gray-600 hover:bg-gray-100 hover:text-green-600'
           }`}
         >
           {label}
@@ -33,7 +33,7 @@ const DropdownNavItem = ({ label, items, pathname }) => {
           <DropdownMenuItem key={item.path} asChild>
             <Link
               to={item.path}
-              className={`w-full cursor-pointer ${pathname === item.path ? 'font-semibold text-blue-600 bg-blue-50' : ''}`}
+              className={`w-full cursor-pointer ${pathname === item.path ? 'font-semibold text-green-600 bg-green-50' : ''}`}
             >
               {item.name}
             </Link>
@@ -67,7 +67,7 @@ const Navigation = () => {
     {
       label: 'Reporting',
       items: [
-        { name: 'News', path: '/news' },
+       // { name: 'News', path: '/news' },
         { name: 'Research Publications', path: '/research' },
         { name: 'Evidence Collection', path: '/evidence-collection' },
       ],
@@ -76,9 +76,10 @@ const Navigation = () => {
       label: 'Campaigns',
       items: [
         { name: 'Advocacy', path: '/advocacy' },
+        { name: 'Ramadan Campaign', path: 'https://donate.stripe.com/6oUcN5e5rd6Zdos3Kr9sk01'}
         // Updated humanitarian link
-        { name: 'Humanitarian', path: '/humanitarian' },
-        { name: 'Diaspora', path: '/diaspora' },
+        //{ name: 'Humanitarian', path: '/humanitarian' },
+        //{ name: 'Diaspora', path: '/diaspora' },
       ],
     },
     {
@@ -104,12 +105,16 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 flex-shrink-0 group">
-            <div className="bg-blue-50 p-2 rounded-full group-hover:bg-blue-100 transition-colors">
-              <Heart className="h-6 w-6 text-blue-600 fill-blue-600" />
+           <Link to="/" className="flex justify-between items-center space-x-3 top-3 ">
+            <div className="top-3 p-8">
+              <img src="https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/sign/sah_logo/SAHLogoTransparent_Black.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtl
+eV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzYWhfbG9nby9TQUhMb2dvVHJhbnNwYXJlbnRfQmxhY2sucG5nIiwiaWF0IjoxNzcyMTU4NjY4LCJleHAiOjIwODc1MTg2Njh9.uYlzXu7evvmic6AAcXKScNzIVMyWxNPJE5Hi990ilEg
+              "
+                 alt="Sudan Action Hub Logo" className="h-20" />
             </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight hidden sm:inline">Sudan Action Hub</span>
-            <span className="text-xl font-bold text-gray-900 sm:hidden">SAH</span>
+            {/*} <span className="text-xl font-bold text-gray-900 tracking-tight hidden sm:inline">Sudan Action Hub</span>
+           */}
+           <span className="text-xl font-bold text-gray-900 sm:hidden">SAH</span>
           </Link>
 
           {/* Desktop Nav */}
@@ -121,8 +126,8 @@ const Navigation = () => {
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                     isActive(item.path)
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
+                      ? 'bg-green-50 text-black font-semibold'
+                      : 'text-gray-600 hover:bg-grey-100 hover:text-green-900'
                   }`}
                 >
                   {item.name}
@@ -141,8 +146,8 @@ const Navigation = () => {
                   </Button>
                 </Link>
               ) : (
-                <Link to="/donations">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white shadow-sm hover:shadow-md transition-all px-6">
+                <Link to="/Donate" >
+                  <Button className="bg-green-900 hover:bg-green-600 text-white shadow-sm hover:shadow-md transition-all px-6">
                     Donate
                   </Button>
                 </Link>
@@ -167,14 +172,14 @@ const Navigation = () => {
                       </DropdownMenuItem>
                     )}
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleSignOut} className="text-red-600 cursor-pointer focus:text-red-600 focus:bg-red-50">
+                    <DropdownMenuItem onClick={handleSignOut} className="text-green-600 cursor-pointer focus:text-green-600 focus:bg-green-50">
                       <LogOut className="mr-2 h-4 w-4" /> Sign Out
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
                 <Link to="/login">
-                  <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700 transition-colors">
+                  <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 hover:text-green-900 transition-colors">
                     Log In
                   </Button>
                 </Link>
@@ -210,8 +215,8 @@ const Navigation = () => {
                     onClick={() => setIsOpen(false)}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive(item.path)
-                        ? 'bg-blue-50 text-blue-700'
-                        : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                        ? 'bg-green-50 text-green-600 font-semibold'
+                        : 'text-gray-700 hover:bg-gray-50 hover:text-green-600'
                     }`}
                   >
                     {item.name}
@@ -247,8 +252,8 @@ const Navigation = () => {
                               onClick={() => setIsOpen(false)}
                               className={`block px-4 py-2.5 rounded-lg text-base font-medium border-l-2 ${
                                 isActive(subItem.path)
-                                  ? 'border-blue-600 text-blue-700 bg-blue-50/50'
-                                  : 'text-gray-600 hover:text-blue-600 hover:border-gray-300'
+                                  ? 'border-green-600 text-green-600 bg-green-50/50'
+                                  : 'text-gray-600 hover:text-green-600 hover:border-gray-300'
                               }`}
                             >
                               {subItem.name}
@@ -273,7 +278,7 @@ const Navigation = () => {
 
                     <Button
                       variant="ghost"
-                      className="w-full justify-start text-red-600 h-12 text-base hover:bg-red-50 hover:text-red-700"
+                      className="w-full justify-start text-green-600 h-12 text-base hover:bg-green-50 hover:text-green-900"
                       onClick={() => { handleSignOut(); setIsOpen(false); }}
                     >
                       <LogOut className="mr-3 h-5 w-5" /> Sign Out
@@ -281,14 +286,14 @@ const Navigation = () => {
                   </>
                 ) : (
                   <>
-                    <Link to="/donations" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg h-12 shadow-sm">
+                    <Link to="/Donate" onClick={() => setIsOpen(false)}>
+                      <Button className="w-full bg-green-900 hover:bg-green-600 text-lg h-12 shadow-sm">
                         Donate
                       </Button>
                     </Link>
 
                     <Link to="/login" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full h-12 text-base border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-700">
+                      <Button variant="outline" className="w-full h-12 text-base border-green-600 text-green-600 hover:bg-green-50 hover:text-green-700">
                         Log In
                       </Button>
                     </Link>

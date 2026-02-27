@@ -12,7 +12,7 @@ const OrganizationCard = ({ org }) => {
         const s = status.toLowerCase();
         if (s.includes('active')) return 'bg-green-100 text-green-800 border-green-200';
         if (s.includes('inactive')) return 'bg-red-100 text-red-800 border-red-200';
-        return 'bg-blue-100 text-blue-800 border-blue-200';
+        return 'bg-green-100 text-green-800 border-green-200';
     };
 
     const renderSocialIcon = (url) => {
@@ -30,7 +30,7 @@ const OrganizationCard = ({ org }) => {
             <Card className="h-full flex flex-col hover:shadow-xl transition-all duration-300 border-gray-200 bg-white group">
                 <CardHeader className="pb-3">
                     <div className="flex justify-between items-start gap-4 h-14">
-                        <CardTitle className="text-lg font-bold text-gray-900 leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">
+                        <CardTitle className="text-lg font-bold text-gray-900 leading-tight group-hover:text-green-600 transition-colors line-clamp-2">
                             {org.name}
                         </CardTitle>
                         {org.status && (
@@ -46,7 +46,7 @@ const OrganizationCard = ({ org }) => {
                                 href={org.website} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline w-fit truncate max-w-full"
+                                className="inline-flex items-center text-sm font-medium text-green-600 hover:text-green-800 hover:underline w-fit truncate max-w-full"
                             >
                                 <LinkIcon className="mr-1.5 h-3.5 w-3.5 shrink-0" />
                                 <span className="truncate">{org.website.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}</span>
@@ -126,7 +126,7 @@ const OrganizationCard = ({ org }) => {
                     {/* Contact Info */}
                     <div className="space-y-1.5 pt-2 h-[3rem]">
                         {org.email && (
-                            <a href={`mailto:${org.email}`} className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors w-fit truncate max-w-full">
+                            <a href={`mailto:${org.email}`} className="flex items-center text-sm text-gray-600 hover:text-green-600 transition-colors w-fit truncate max-w-full">
                                 <Mail className="mr-2 h-4 w-4 text-gray-400 shrink-0" />
                                 <span className="truncate">{org.email}</span>
                             </a>
@@ -153,7 +153,7 @@ const OrganizationCard = ({ org }) => {
                                         href={trimmedUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-2 bg-gray-50 rounded-full text-gray-500 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                                        className="p-2 bg-gray-50 rounded-full text-gray-500 hover:bg-green-50 hover:text-green-600 transition-colors"
                                         title={trimmedUrl}
                                     >
                                         {renderSocialIcon(trimmedUrl)}

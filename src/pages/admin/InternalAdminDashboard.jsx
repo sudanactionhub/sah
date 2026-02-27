@@ -172,7 +172,7 @@ const InternalAdminDashboard = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Admin Portal</h1>
-          <Badge variant="outline" className="bg-blue-100 text-blue-800">Super Admin</Badge>
+          <Badge variant="outline" className="bg-green-100 text-green-800">Super Admin</Badge>
         </div>
 
         <Tabs defaultValue="events" className="space-y-6">
@@ -227,7 +227,7 @@ const InternalAdminDashboard = () => {
                         <h3 className="font-bold text-lg">{req.user?.full_name}</h3>
                         <p className="text-sm text-gray-600 mb-2">Claiming affiliation with: <strong>{req.organizations?.name}</strong></p>
                         <div className="mb-4">
-                          <a href={req.document_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline flex items-center text-sm">
+                          <a href={req.document_url} target="_blank" rel="noopener noreferrer" className="text-green-600 hover:underline flex items-center text-sm">
                             <ExternalLink className="h-4 w-4 mr-1" /> View Proof Document
                           </a>
                         </div>

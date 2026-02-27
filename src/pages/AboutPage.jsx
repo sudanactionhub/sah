@@ -63,7 +63,7 @@ const AboutPage = () => {
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1651009188116-bb5f80eaf6aa?w=1200&h=630&fit=crop" />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{
             opacity: 0,
@@ -73,7 +73,7 @@ const AboutPage = () => {
             y: 0
           }} className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">About Us</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Dedicated to justice, accountability, and humanitarian support for the people of Sudan
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ const AboutPage = () => {
               once: true
             }}>
               <div className="flex items-center mb-4">
-                <History className="h-8 w-8 text-blue-600 mr-3" />
+                <History className="h-8 w-8 text-green-600 mr-3" />
                 <h2 className="text-3xl font-bold text-gray-900">Our Story</h2>
               </div>
               <p className="text-lg text-gray-600 mb-4">Sudan Action Hub was founded in response to the escalating humanitarian crisis and human rights violations in Sudan, particularly in the Darfur region.</p>
@@ -141,7 +141,7 @@ const AboutPage = () => {
             }} transition={{
               delay: index * 0.1
             }} className="bg-white rounded-lg p-8 shadow-md">
-                <value.icon className="h-12 w-12 text-blue-600 mb-4" />
+                <value.icon className="h-12 w-12 text-green-600 mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {value.title}
                 </h3>
@@ -180,7 +180,7 @@ const AboutPage = () => {
               }} transition={{
                 delay: index * 0.1
               }} className="bg-gray-50 rounded-lg p-6 text-center">
-                  {member.image_url ? <img src={member.image_url} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" /> : <div className="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  {member.image_url ? <img src={member.image_url} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" /> : <div className="w-24 h-24 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                       <span className="text-3xl font-bold text-white">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
@@ -188,7 +188,7 @@ const AboutPage = () => {
                   <h3 className="text-lg font-bold text-gray-900 mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-blue-600 font-semibold mb-3">
+                  <p className="text-sm text-green-600 font-semibold mb-3">
                     {member.role}
                   </p>
                   <p className="text-sm text-gray-600">{member.bio}</p>

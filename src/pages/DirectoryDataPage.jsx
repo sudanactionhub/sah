@@ -115,12 +115,12 @@ const DirectoryDataPage = () => {
             </Helmet>
             <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <div className="mb-8">
-                    <Link to="/organization-directory" className="inline-flex items-center text-blue-600 hover:underline mb-4">
+                    <Link to="/organization-directory" className="inline-flex items-center text-green-600 hover:underline mb-4">
                         <ChevronLeft className="h-4 w-4 mr-1" />
                         Back to Directory
                     </Link>
                     <div className="flex items-center gap-4">
-                        <Database className="h-10 w-10 text-blue-600"/>
+                        <Database className="h-10 w-10 text-green-600"/>
                         <div>
                             <h1 className="text-3xl font-bold text-gray-900">Organization Directory Data</h1>
                             <p className="mt-1 text-lg text-gray-600">

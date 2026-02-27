@@ -27,7 +27,7 @@ const DiasporaSupportPage = () => {
         <meta name="description" content="Supporting Sudanese student communities and refugees in the diaspora through community-led initiatives and campaigns." />
       </Helmet>
 
-      <div className="bg-blue-50 py-16 border-b">
+      <div className="bg-green-50 py-16 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
@@ -35,7 +35,7 @@ const DiasporaSupportPage = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="bg-white p-3 rounded-2xl shadow-sm inline-block mb-6">
-              <Globe className="h-10 w-10 text-blue-600" />
+              <Globe className="h-10 w-10 text-green-600" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl tracking-tight mb-6">
               Diaspora Support
@@ -63,7 +63,7 @@ const DiasporaSupportPage = () => {
                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     src={campaign.src} />
                    <div className="absolute top-4 right-4">
-                     <Badge className="bg-white/90 text-blue-700 hover:bg-white shadow-sm border-none">
+                     <Badge className="bg-white/90 text-green-700 hover:bg-white shadow-sm border-none">
                        Active Campaign
                      </Badge>
                    </div>
@@ -71,7 +71,7 @@ const DiasporaSupportPage = () => {
                 <CardHeader>
                   <div className="flex gap-2 mb-3 flex-wrap">
                     {campaign.tags.map(tag => (
-                      <Badge key={tag} variant="secondary" className="text-xs bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-100">
+                      <Badge key={tag} variant="secondary" className="text-xs bg-green-50 text-green-700 hover:bg-green-100 border-green-100">
                         {tag}
                       </Badge>
                     ))}
@@ -84,7 +84,7 @@ const DiasporaSupportPage = () => {
                   </CardDescription>
                 </CardContent>
                 <CardFooter className="pt-4 border-t bg-gray-50/50">
-                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 gap-2 shadow-sm">
+                  <Button asChild className="w-full bg-green-600 hover:bg-green-700 gap-2 shadow-sm">
                     <a href={campaign.link} target="_blank" rel="noopener noreferrer">
                       Support Campaign <ExternalLink className="h-4 w-4" />
                     </a>

@@ -71,7 +71,7 @@ const Gallery = ({ images }) => {
             key={idx}
             onClick={() => setCurrentIndex(idx)}
             className={`relative flex-shrink-0 w-20 h-20 rounded-md overflow-hidden border-2 transition-colors ${
-              idx === currentIndex ? 'border-blue-600' : 'border-transparent'
+              idx === currentIndex ? 'border-green-600' : 'border-transparent'
             }`}
           >
             <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
@@ -125,7 +125,7 @@ const EventDetailPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading event details...</p>
         </div>
       </div>
@@ -190,7 +190,7 @@ const EventDetailPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <span className="inline-block px-3 py-1 rounded-full bg-blue-600 text-white text-sm font-semibold mb-3">
+              <span className="inline-block px-3 py-1 rounded-full bg-green-600 text-white text-sm font-semibold mb-3">
                 {event.event_type}
               </span>
               <h1 className="text-3xl md:text-5xl font-bold text-white mb-2">{displayTitle}</h1>
@@ -230,7 +230,7 @@ const EventDetailPage = () => {
                 
                 <div className="space-y-4">
                   <div className="flex items-start">
-                    <Calendar className="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <Calendar className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">Date</p>
                       <p className="text-gray-600">
@@ -243,7 +243,7 @@ const EventDetailPage = () => {
                   </div>
 
                   <div className="flex items-start">
-                    <Clock className="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <Clock className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">Time</p>
                       <p className="text-gray-600">
@@ -256,7 +256,7 @@ const EventDetailPage = () => {
                   </div>
 
                   <div className="flex items-start">
-                    <MapPin className="h-5 w-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                    <MapPin className="h-5 w-5 text-green-600 mr-3 mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-gray-900">Location</p>
                       {event.address && (
@@ -270,7 +270,7 @@ const EventDetailPage = () => {
                 {displayButtonLink && (
                   <div className="mt-6 pt-6 border-t border-gray-100">
                     <Button 
-                      className="w-full bg-blue-600 hover:bg-blue-700"
+                      className="w-full bg-green-600 hover:bg-green-700"
                       onClick={() => window.open(displayButtonLink, '_blank')}
                     >
                       {displayButtonText} <ExternalLink className="ml-2 h-4 w-4" />

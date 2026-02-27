@@ -75,12 +75,12 @@ const HumanitarianPage = () => {
         />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
             <Heart className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Humanitarian Aid</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">
               Campaigns supporting communities in Sudan through direct aid delivery.
             </p>
           </motion.div>
@@ -104,7 +104,7 @@ const HumanitarianPage = () => {
                     src={campaign.image}
                   />
                   <div className="absolute top-4 right-4">
-                    <Badge className="bg-white/90 text-blue-700 hover:bg-white shadow-sm border-none">
+                    <Badge className="bg-white/90 text-green-700 hover:bg-white shadow-sm border-none">
                       Active Campaign
                     </Badge>
                   </div>
@@ -116,7 +116,7 @@ const HumanitarianPage = () => {
                       <Badge
                         key={tag}
                         variant="secondary"
-                        className="text-xs bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-100"
+                        className="text-xs bg-green-50 text-green-700 hover:bg-green-100 border-green-100"
                       >
                         {tag}
                       </Badge>
@@ -130,7 +130,7 @@ const HumanitarianPage = () => {
                 </CardContent>
 
                 <CardFooter className="pt-4 border-t bg-gray-50/50">
-                  <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 gap-2 shadow-sm">
+                  <Button asChild className="w-full bg-green-600 hover:bg-green-700 gap-2 shadow-sm">
                     <a href={campaign.link} target="_blank" rel="noopener noreferrer">
                       Support Campaign <ExternalLink className="h-4 w-4" />
                     </a>

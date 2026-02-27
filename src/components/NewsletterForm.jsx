@@ -44,13 +44,13 @@ const NewsletterForm = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-blue-600 rounded-lg p-8 text-white"
+      className="bg-red-900 rounded-lg p-8 text-white"
     >
       <div className="flex items-center justify-center mb-4">
         <Mail className="h-8 w-8 mr-2" />
         <h3 className="text-2xl font-bold">Stay Informed</h3>
       </div>
-      <p className="text-center mb-6 text-blue-100">
+      <p className="text-center mb-6 text-red-100">
         Subscribe to our newsletter for updates on Sudan and our humanitarian efforts.
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -59,7 +59,7 @@ const NewsletterForm = () => {
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-900"
         />
         <input
           type="email"
@@ -67,12 +67,12 @@ const NewsletterForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="w-full px-4 py-3 rounded-md text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-900"
         />
         <Button
           type="submit"
           disabled={loading}
-          className="w-full bg-white text-blue-600 hover:bg-blue-50 font-semibold"
+          className="w-full bg-white text-red-900 hover:bg-red-50 font-semibold"
         >
           {loading ? 'Subscribing...' : 'Subscribe'}
         </Button>

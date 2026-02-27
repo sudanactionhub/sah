@@ -59,7 +59,7 @@ const RegisterOrganizationPage = () => {
         <Card>
           <CardHeader>
             <div className="flex items-center gap-2 mb-2">
-              <Building2 className="h-6 w-6 text-blue-600" />
+              <Building2 className="h-6 w-6 text-green-600" />
               <CardTitle>Register Organization</CardTitle>
             </div>
             <CardDescription>
@@ -107,7 +107,7 @@ const RegisterOrganizationPage = () => {
                 <Input id="contact_info" name="contact_info" placeholder="Phone number or alternative contact" value={formData.contact_info} onChange={handleChange} />
               </div>
 
-              <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>
+              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
                 {loading ? 'Submitting...' : 'Submit Registration Request'}
               </Button>
             </form>

@@ -214,7 +214,7 @@ const ResearchEditor = ({ research = null, onSave, onCancel, onDelete }) => {
                 href={formData.document_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block text-blue-600 hover:underline text-sm"
+                className="mt-2 inline-block text-green-600 hover:underline text-sm"
               >
                 📄 View uploaded document
               </a>

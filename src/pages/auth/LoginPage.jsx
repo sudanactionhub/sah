@@ -29,8 +29,8 @@ const LoginPage = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <div className="flex justify-center mb-4">
-            <div className="p-3 bg-blue-100 rounded-full">
-              <Lock className="h-6 w-6 text-blue-600" />
+            <div className="p-3 bg-green-100 rounded-full">
+              <Lock className="h-6 w-6 text-green-600" />
             </div>
           </div>
           <CardTitle className="text-2xl font-bold text-center">Sign in to your account</CardTitle>
@@ -61,7 +61,7 @@ const LoginPage = () => {
                 required
               />
             </div>
-            <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={loading}>
+            <Button type="submit" className="w-full bg-green-600 hover:bg-green-700" disabled={loading}>
               {loading ? 'Signing in...' : 'Sign In'}
             </Button>
           </form>
@@ -69,13 +69,13 @@ const LoginPage = () => {
         <CardFooter className="flex flex-col space-y-4">
           <div className="text-sm text-center text-gray-500">
             Don't have an account?{' '}
-            <Link to="/register-user" className="text-blue-600 hover:underline">
+            <Link to="/register-user" className="text-green-600 hover:underline">
               Register here
             </Link>
           </div>
           <div className="text-sm text-center text-gray-500">
             Represent an organization?{' '}
-            <Link to="/register-org" className="text-blue-600 hover:underline">
+            <Link to="/register-org" className="text-green-600 hover:underline">
               Register your organization
             </Link>
           </div>

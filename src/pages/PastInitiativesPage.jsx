@@ -33,9 +33,9 @@ const InitiativeCard = ({
         </div>
       </div>
       <div className="p-6 flex-grow flex flex-col">
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{initiative.title}</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors">{initiative.title}</h3>
         <div className="flex items-center text-sm text-gray-500 mb-4">
-          <Calendar className="h-4 w-4 mr-2 text-blue-500" />
+          <Calendar className="h-4 w-4 mr-2 text-green-500" />
           <span>{format(new Date(initiative.date), 'MMMM d, yyyy')}</span>
         </div>
         <p className="text-gray-600 flex-grow line-clamp-3">{initiative.description}</p>
@@ -115,7 +115,7 @@ const PastInitiativesPage = () => {
         <link rel="canonical" href="https://sudan-action-hub.com/event-programming" />
       </Helmet>
 
-      <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{
           opacity: 0,
@@ -127,7 +127,7 @@ const PastInitiativesPage = () => {
           duration: 0.8
         }}>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">Events and Programming</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">Efforts to drive change and support Sudan across the United States.</p>
+            <p className="text-xl text-green-100 max-w-3xl mx-auto">Efforts to drive change and support Sudan across the United States.</p>
           </motion.div>
         </div>
       </div>
@@ -152,13 +152,13 @@ const PastInitiativesPage = () => {
           </div>
 
           {loading ? <div className="flex justify-center items-center h-64">
-              <Loader2 className="h-12 w-12 animate-spin text-blue-600" />
+              <Loader2 className="h-12 w-12 animate-spin text-green-600" />
             </div> : error ? <div className="text-center text-red-500 bg-red-100 p-4 rounded-lg">
               <p className="font-bold">An error occurred:</p>
               <p>{error}</p>
             </div> : filteredInitiatives.length === 0 ? <div className="text-center py-16 bg-white rounded-lg border border-dashed border-gray-300">
               <p className="text-gray-500 text-lg">No initiatives found matching your criteria.</p>
-              <Button variant="link" onClick={clearFilters} className="mt-2 text-blue-600">
+              <Button variant="link" onClick={clearFilters} className="mt-2 text-green-600">
                 Clear all filters
               </Button>
             </div> : <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

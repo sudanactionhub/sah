@@ -40,7 +40,7 @@ const SuccessPage = () => {
             className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
           >
             <Link to="/store">
-              <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+              <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white">
                 <ShoppingBag className="mr-2 h-5 w-5" />
                 Continue Shopping
               </Button>

@@ -258,7 +258,7 @@ const JoinUsPage = () => {
           <div className="mb-8">
             <div className="flex justify-between mb-3">
               {STEPS.map((step, index) => (
-                <div key={index} className={`flex-1 h-2 rounded-full mx-1 transition-colors ${index <= currentStep ? 'bg-blue-600' : 'bg-gray-300'}`} />
+                <div key={index} className={`flex-1 h-2 rounded-full mx-1 transition-colors ${index <= currentStep ? 'bg-green-600' : 'bg-gray-300'}`} />
               ))}
             </div>
             <p className="text-sm text-gray-600 text-center">Step {currentStep + 1} of {STEPS.length}</p>
@@ -496,7 +496,7 @@ function NextStepsStep({ formData, handleRadioChange, handleInputChange, errors 
         </FormField>
       )}
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-6">
+      <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-6">
         <p className="text-sm text-gray-700"><strong>We truly appreciate your interest in Sudan Action Hub.</strong><br />Our team will review responses on a rolling basis and reach out as opportunities align with your interests and our evolving needs.</p>
       </div>
     </div>
@@ -521,7 +521,7 @@ function ErrorMessage({ message }) {
 }
 
 function inputClass(hasError) {
-  return `w-full px-4 py-2 border rounded-lg text-sm transition-colors ${hasError ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'} focus:outline-none focus:ring-2`;
+  return `w-full px-4 py-2 border rounded-lg text-sm transition-colors ${hasError ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-green-500 focus:border-green-500'} focus:outline-none focus:ring-2`;
 }
 
 function SuccessScreen() {
