@@ -40,13 +40,13 @@ const NewsPage = () => {
         <title>Latest News on Sudan | Sudan Action Hub</title>
         <meta name="description" content="Stay informed with the latest news, updates, and professional reporting on human rights, humanitarian efforts, and current events in Sudan." />
         <meta name="keywords" content="Sudan news, Darfur news, Sudan conflict updates, Sudan current events, human rights news Sudan" />
-        <link rel="canonical" href="https://sudan-action-hub.com/news" />
+        <link rel="canonical" href="https://sudanactionhub.org/news" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Latest News on Sudan | Sudan Action Hub" />
         <meta property="og:description" content="Stay informed with the latest news and professional reporting on human rights, humanitarian efforts, and current events in Sudan." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/news" />
+        <meta property="og:url" content="https://sudanactionhub.org/news" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

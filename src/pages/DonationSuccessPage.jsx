@@ -43,7 +43,7 @@ const DonationSuccessPage = () => {
         <title>Thank You for Your Donation! | Sudan Action Hub</title>
         <meta name="description" content="Your generous donation has been received. Thank you for supporting our mission and making a difference for the people of Sudan." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://sudan-action-hub.com/donation-success" />
+        <link rel="canonical" href="https://sudanactionhub.org/donation-success" />
       </Helmet>
       <div className="bg-gray-50 min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8 text-center">

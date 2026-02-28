@@ -112,7 +112,7 @@ const PastInitiativesPage = () => {
         <title>Events and Programming | Sudan Action Hub</title>
         <meta name="description" content="Explore our impactful campaigns, events, and programming dedicated to supporting Sudan. See the difference we've made together." />
         <meta name="keywords" content="Sudan initiatives, Sudan events, advocacy history, humanitarian initiatives, Sudan Action Hub, programming" />
-        <link rel="canonical" href="https://sudan-action-hub.com/event-programming" />
+        <link rel="canonical" href="https://sudanactionhub.org/event-programming" />
       </Helmet>
 
       <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-16">

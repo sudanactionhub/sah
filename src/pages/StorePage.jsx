@@ -11,13 +11,13 @@ const StorePage = () => {
         <title>Shop to Support Sudan | Sudan Action Hub Store</title>
         <meta name="description" content="Support our cause by purchasing merchandise from our online store. All proceeds go towards our humanitarian aid, research, and advocacy efforts for Sudan." />
         <meta name="keywords" content="Sudan charity shop, support Sudan, buy merchandise, non-profit store, Sudan fundraiser store" />
-        <link rel="canonical" href="https://sudan-action-hub.com/store" />
+        <link rel="canonical" href="https://sudanactionhub.org/store" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Shop to Support Sudan | Sudan Action Hub Store" />
         <meta property="og:description" content="Every item you buy helps fund our vital work in advocacy, research, and humanitarian aid for Sudan." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1579298245158-38e219192a5b?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/store" />
+        <meta property="og:url" content="https://sudanactionhub.org/store" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

@@ -113,13 +113,13 @@ const DonationsPage = () => {
         <title>Donate to Support Sudan | Sudan Action Hub</title>
         <meta name="description" content="Make a secure donation to support our humanitarian efforts in Sudan. Your donation helps provide essential aid, medical assistance, and resources to affected communities." />
         <meta name="keywords" content="donate to Sudan, Sudan charity, Sudan donation, support Sudan relief, humanitarian donation, Darfur donation" />
-        <link rel="canonical" href="https://sudan-action-hub.com/donations" />
+        <link rel="canonical" href="https://sudanactionhub.org/donations" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Donate to Support Sudan | Sudan Action Hub" />
         <meta property="og:description" content="Your generosity directly supports vital humanitarian aid and advocacy efforts for the people of Sudan." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1618224304910-1845347989c2?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/donations" />
+        <meta property="og:url" content="https://sudanactionhub.org/donations" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

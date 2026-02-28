@@ -59,13 +59,13 @@ const GalaPage = () => {
         <title>Sudan Humanitarian Gala | Sudan Action Hub</title>
         <meta name="description" content="Join us for the Sudan Humanitarian Gala in Washington, D.C. A night of solidarity, awareness, and fundraising to support vital humanitarian assistance in Sudan." />
         <meta name="keywords" content="Sudan gala, humanitarian gala, Washington DC charity event, Sudan fundraiser, charity ball, non-profit gala" />
-        <link rel="canonical" href="https://sudan-action-hub.com/gala" />
+        <link rel="canonical" href="https://sudanactionhub.org/gala" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Sudan Humanitarian Gala | Sudan Action Hub" />
         <meta property="og:description" content="An evening of solidarity and action in Washington, D.C. to raise critical funds and awareness for humanitarian assistance in Sudan." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1702342456570-2a68dcd8efba?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/gala" />
+        <meta property="og:url" content="https://sudanactionhub.org/gala" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

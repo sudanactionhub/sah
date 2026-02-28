@@ -25,7 +25,7 @@ const HumanitarianPage = () => {
       title: "Sudan Charity Gala",
       description:
         "Join us for the Sudan Humanitarian Gala in Washington, D.C. A night of solidarity, awareness, and fundraising to support vital humanitarian assistance in Sudan.",
-      link: "https://sudan-action-hub.com/gala",
+      link: "https://sudanactionhub.org/gala",
       tags: ["Charity", "Advocacy", "Fundraising"],
       image: "https://images.unsplash.com/photo-1702342456570-2a68dcd8efba?w=1200&h=630&fit=crop",   // ⭐ Add image URL here
     imageAlt: "Man wearing vest delivering aid",

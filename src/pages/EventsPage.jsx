@@ -430,10 +430,10 @@ const EventsPage = () => {
         <title>Events Calendar for Sudan | Sudan Action Hub</title>
         <meta name="description" content="View our interactive calendar for upcoming events, including charity galas, fundraisers, advocacy rallies, and community gatherings to support Sudan." />
         <meta name="keywords" content="Sudan events, Sudan fundraisers, Sudan protest, advocacy events, charity gala, community gatherings" />
-        <link rel="canonical" href="https://sudan-action-hub.com/events" />
+        <link rel="canonical" href="https://sudanactionhub.org/events" />
         {/* Removed placeholder image as per request. Ideally, these should be representative images for SEO. */}
         {/* <meta property="og:image" content="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=630&fit=crop" /> */}
-        <meta property="og:url" content="https://sudan-action-hub.com/events" />
+        <meta property="og:url" content="https://sudanactionhub.org/events" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
         <meta name="twitter:card" content="summary_large_image" />

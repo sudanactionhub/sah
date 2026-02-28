@@ -45,6 +45,7 @@ function App() {
 		<AuthProvider>
 			<Helmet>
 				<meta name="keywords" content="sudan war, sudan news, sudan civil war, war in sudan, sudan people, sudan africa, sudan genocide, sudan conflict, sudan time" />
+				<meta property="og:image" content="https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/sign/sah_logo/SAHLogoTransparent_White.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzYWhfbG9nby9TQUhMb2dvVHJhbnNwYXJlbnRfV2hpdGUucG5nIiwiaWF0IjoxNzcyMTU5MDA2LCJleHAiOjIwODc1MTkwMDZ9.FI6s3PSsUB6Tdx7H1v0p4mb1XUg0Gufb5oI0_apf6E0" />   
 			</Helmet>
 			<Router>
 				<CartProvider>

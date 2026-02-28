@@ -18,7 +18,7 @@ const PrivacyPolicyPage = () => {
           name="keywords"
           content="Sudan Action Hub privacy policy, data privacy, nonprofit privacy, donor privacy"
         />
-        <link rel="canonical" href="https://sudan-action-hub.com/privacy" />
+        <link rel="canonical" href="https://sudanactionhub.org/privacy" />
 
         {/* Open Graph */}
         <meta property="og:title" content="Privacy Policy | Sudan Action Hub" />
@@ -26,7 +26,7 @@ const PrivacyPolicyPage = () => {
           property="og:description"
           content="Learn how Sudan Action Hub collects, uses, and protects personal information."
         />
-        <meta property="og:url" content="https://sudan-action-hub.com/privacy" />
+        <meta property="og:url" content="https://sudanactionhub.org/privacy" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

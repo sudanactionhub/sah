@@ -12,7 +12,7 @@ const SuccessPage = () => {
         <title>Order Successful! | Sudan Action Hub Store</title>
         <meta name="description" content="Thank you for your order! Your purchase helps support our mission in Sudan." />
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://sudan-action-hub.com/success" />
+        <link rel="canonical" href="https://sudanactionhub.org/success" />
       </Helmet>
       <div className="bg-gray-50 min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8 text-center">

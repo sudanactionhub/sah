@@ -111,7 +111,7 @@ const DirectoryDataPage = () => {
                 <meta name="description" content="A comprehensive list of all unique values, categories, and tags used in the Sudan Organization Directory for filtering and data analysis." />
                 <meta name="keywords" content="Sudan directory data, organization categories, filterable values, directory tags, areas of operation" />
                 <meta name="robots" content="noindex, follow" />
-                <link rel="canonical" href="https://sudan-action-hub.com/organization-directory/data" />
+                <link rel="canonical" href="https://sudanactionhub.org/organization-directory/data" />
             </Helmet>
             <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 <div className="mb-8">

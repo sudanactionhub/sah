@@ -44,7 +44,7 @@ const DonatePage = () => {
           name="description"
           content="Support Sudan Action Hub’s humanitarian aid and advocacy efforts by making a donation."
         />
-        <link rel="canonical" href="https://sudan-action-hub.com/donate" />
+        <link rel="canonical" href="https://sudanactionhub.org/donate" />
       </Helmet>
 
       <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-8">

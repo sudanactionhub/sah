@@ -66,13 +66,13 @@ const EvidencePage = () => {
         <title>Secure Evidence Submission for Sudan | Sudan Action Hub</title>
         <meta name="description" content="Securely and confidentially submit evidence of human rights violations and atrocities in Sudan and Darfur. Your contribution is vital for documentation and accountability." />
         <meta name="keywords" content="Sudan evidence submission, Darfur atrocities, human rights violations evidence, submit testimony Sudan, document war crimes" />
-        <link rel="canonical" href="https://sudan-action-hub.com/evidence-collection" />
+        <link rel="canonical" href="https://sudanactionhub.org/evidence-collection" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Secure Evidence Submission for Sudan | Sudan Action Hub" />
         <meta property="og:description" content="A secure and confidential platform for documenting human rights violations in Sudan. Help us build a case for justice." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1589998059171-988d887df646?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/evidence-collection" />
+        <meta property="og:url" content="https://sudanactionhub.org/evidence-collection" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

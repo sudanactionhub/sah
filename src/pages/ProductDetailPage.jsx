@@ -118,7 +118,7 @@ function ProductDetailPage() {
   }, [id, navigate]);
   
   const currentImage = product?.images[currentImageIndex];
-  const canonicalUrl = `https://sudan-action-hub.com/store/products/${id}`;
+  const canonicalUrl = `https://sudanactionhub.org/store/products/${id}`;
 
   if (loading) {
     return (

@@ -48,14 +48,14 @@ const AdvocacyPage = () => {
         <title>Advocacy for Sudan - Take Action | Sudan Action Hub</title>
         <meta name="description" content="Join our advocacy efforts for Sudan. Learn about past actions, discover ways to get involved, and make your voice heard for human rights and justice." />
         <meta name="keywords" content="Sudan advocacy, take action for Sudan, Sudan petitions, Sudan human rights campaign, justice for Darfur, contact representatives" />
-        <link rel="canonical" href="https://sudan-action-hub.com/advocacy" />
+        <link rel="canonical" href="https://sudanactionhub.org/advocacy" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Advocacy for Sudan - Take Action | Sudan Action Hub" />
         <meta property="og:description" content="Together, we can amplify the voices of those affected and demand justice. Find out how you can take action for Sudan." />
         {/* Removed placeholder image as per request. Ideally, these should be representative images for SEO. */}
         {/* <meta property="og:image" content="https://images.unsplash.com/photo-1590812572985-65983f15e839?w=1200&h=630&fit=crop" /> */}
-        <meta property="og:url" content="https://sudan-action-hub.com/advocacy" />
+        <meta property="og:url" content="https://sudanactionhub.org/advocacy" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

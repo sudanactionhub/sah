@@ -46,13 +46,13 @@ const AboutPage = () => {
         <title>About Us | Sudan Action Hub</title>
         <meta name="description" content="Learn about Sudan Action Hub's mission, story, and the dedicated founding team working to document human rights violations and support humanitarian efforts in Sudan." />
         <meta name="keywords" content="about Sudan Action Hub, our mission, our story, Sudan activists, humanitarian team, human rights advocates" />
-        <link rel="canonical" href="https://sudan-action-hub.com/about" />
+        <link rel="canonical" href="https://sudanactionhub.org/about" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="About Us | Sudan Action Hub" />
         <meta property="og:description" content="Learn about our dedication to justice, accountability, and humanitarian support for the people of Sudan." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1651009188116-bb5f80eaf6aa?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/about" />
+        <meta property="og:url" content="https://sudanactionhub.org/about" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

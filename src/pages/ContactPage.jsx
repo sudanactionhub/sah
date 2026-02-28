@@ -64,13 +64,13 @@ const ContactPage = () => {
         <title>Contact Us - Get in Touch | Sudan Action Hub</title>
         <meta name="description" content="Get in touch with Sudan Action Hub. Connect with us for partnerships, media inquiries, or to learn more about our work and how you can get involved." />
         <meta name="keywords" content="contact Sudan Action Hub, get involved, Sudan partnership, media inquiry, Sudan support, contact us" />
-        <link rel="canonical" href="https://sudan-action-hub.com/contact" />
+        <link rel="canonical" href="https://sudanactionhub.org/contact" />
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Contact Us - Get in Touch | Sudan Action Hub" />
         <meta property="og:description" content="We'd love to hear from you. Reach out for partnerships, inquiries, or to get involved in our mission for Sudan." />
         <meta property="og:image" content="https://images.unsplash.com/photo-1557844029-b91d4ca7426d?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/contact" />
+        <meta property="og:url" content="https://sudanactionhub.org/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 

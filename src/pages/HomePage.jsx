@@ -36,13 +36,13 @@ const HomePage = () => {
         <title>Sudan Action Hub - Human Rights & Humanitarian Aid</title>
         <meta name="description" content="Sudan Action Hub is dedicated to documenting human rights violations in Sudan, supporting humanitarian efforts, and advocating for justice through research, evidence collection, and direct aid." />
         <meta name="keywords" content="Sudan, Darfur, human rights, humanitarian aid, advocacy, Sudan conflict, justice for Sudan, human rights violations, evidence collection" />
-        <link rel="canonical" href="https://sudan-action-hub.com/" />
+        <link rel="canonical" href="https://sudanactionhub.org/" />
         
         {/* Open Graph Tags */}
         <meta property="og:title" content="Sudan Action Hub - Human Rights & Humanitarian Aid" />
         <meta property="og:description" content="A non-profit organization documenting human rights violations, supporting humanitarian efforts, and advocating for justice in Sudan." />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1637034132661-4f015591b84a?w=1200&h=630&fit=crop" />
-        <meta property="og:url" content="https://sudan-action-hub.com/" />
+        <meta property="og:image" content="https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/sign/sah_logo/SAHLogoTransparent_White.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzYWhfbG9nby9TQUhMb2dvVHJhbnNwYXJlbnRfV2hpdGUucG5nIiwiaWF0IjoxNzcyMTU5MDA2LCJleHAiOjIwODc1MTkwMDZ9.FI6s3PSsUB6Tdx7H1v0p4mb1XUg0Gufb5oI0_apf6E0" />   
+        <meta property="og:url" content="https://sudanactionhub.org/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Sudan Action Hub" />
 
