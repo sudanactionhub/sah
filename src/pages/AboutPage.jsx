@@ -162,7 +162,7 @@ const AboutPage = () => {
           }} viewport={{
             once: true
           }} className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Founding Team</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Board of Directors</h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Led by experienced professionals in human rights, humanitarian aid, and advocacy
             </p>
@@ -185,13 +185,18 @@ const AboutPage = () => {
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>}
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">
+                  <h2 className="text-2xl font-bold text-green-700 mb-1">
                     {member.name}
-                  </h3>
-                  <p className="text-sm text-green-600 font-semibold mb-3">
+                  </h2>
+                  <h4 className="text-sm text-gray-500  mb-4">
+                    {member.email}
+                  </h4>
+                 {/*}
+                  <p className="text-sm  font-semibold mb-3">
                     {member.role}
                   </p>
-                  <p className="text-sm text-gray-600">{member.bio}</p>
+                  */}
+                  <p className="text-sm text-gray-600 font-semibold">{member.bio}</p>
                 </motion.div>)}
             </div>}
         </div>
