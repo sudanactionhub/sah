@@ -76,7 +76,7 @@ const Navigation = () => {
       label: 'Campaigns',
       items: [
         { name: 'Advocacy', path: '/advocacy' },
-        { name: 'Ramadan Campaign', path: 'https://donate.stripe.com/6oUcN5e5rd6Zdos3Kr9sk01'}
+        { name: 'Ramadan Campaign', path: '/blog/HopeandHaven' },
         // Updated humanitarian link
         //{ name: 'Humanitarian', path: '/humanitarian' },
         //{ name: 'Diaspora', path: '/diaspora' },

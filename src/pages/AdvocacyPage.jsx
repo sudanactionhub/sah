@@ -45,7 +45,7 @@ const AdvocacyPage = () => {
 
   return <>
       <Helmet>
-        <title>Advocacy for Sudan - Take Action | Sudan Action Hub</title>
+        <title>sudanactionhub.org - Take Action | Sudan Action Hub</title>
         <meta name="description" content="Join our advocacy efforts for Sudan. Learn about past actions, discover ways to get involved, and make your voice heard for human rights and justice." />
         <meta name="keywords" content="Sudan advocacy, take action for Sudan, Sudan petitions, Sudan human rights campaign, justice for Darfur, contact representatives" />
         <link rel="canonical" href="https://sudanactionhub.org/advocacy" />

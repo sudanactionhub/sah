@@ -30,6 +30,8 @@ import EventDetailPage from '@/pages/EventDetailPage';
 import DiasporaSupportPage from '@/pages/DiasporaSupportPage';
 import JoinUsPage from '@/pages/JoinUsPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import BlogPostPage from '@/pages/BlogPostsPage';
+import HopeAndHavenBlogPost from '@/pages/BlogPages/HopeandHaven';
 
 // Auth Pages
 import LoginPage from '@/pages/auth/LoginPage';
@@ -70,6 +72,9 @@ function App() {
 								<Route path="/gala" element={<GalaPage />} />
 								<Route path="/donations" element={<DonationsPage />} />
 								<Route path="/donate" element={<DonatePage />} />
+							
+								<Route path="/blog" element={<BlogPostPage />} />
+								<Route path="/blog/HopeandHaven" element={<HopeAndHavenBlogPost />} />
 
 								<Route path="/donation-success" element={<DonationSuccessPage />} />
 								<Route path="/contact" element={<ContactPage />} />
