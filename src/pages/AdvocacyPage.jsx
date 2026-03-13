@@ -84,6 +84,106 @@ const AdvocacyPage = () => {
           </motion.div>
         </div>
       </div>
+      <section className="relative overflow-hidden bg-white py-20">
+  <div className="absolute inset-0 bg-gradient-to-b from-stone-50 via-white to-white pointer-events-none" />
+
+  <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto max-w-3xl text-center">
+     <p className="text-lg font-semibold uppercase tracking-[0.25em] text-[#780403] sm:text-3xl">
+  IN THE PRESS
+</p>
+<p className="mt-4 text-lg font-semibold tracking-tight text-gray-800 sm:text-lg">
+  Amplifying Sudanese voices across major media outlets
+</p>
+<p className="mt-6 text-lg leading-8 text-gray-600">
+  Through respected international media platforms, Sudan Action Hub’s advocacy has helped
+  elevate the voices of those impacted by Sudan’s crisis and bring greater visibility to
+  the urgency of protection, accountability, and humanitarian response.
+</p>
+    </div>
+
+    <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+      {/* NPR */}
+      <a
+        href="https://www.npr.org/2025/11/13/nx-s1-5604819/whats-happening-in-el-fasher"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#780403]/30 hover:shadow-xl"
+      >
+        <div className="flex-32 items-center justify-center">
+          <img
+            src="https://i.imgur.com/YVb2BuV.jpeg"
+            alt="NPR logo"
+            className="max-h-auto w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+
+        <div className="mt-6 text-center">
+          <h3 className="text-lg font-semibold text-gray-900">NPR</h3>
+          <p className="mt-2 text-sm leading-6 text-gray-600">
+            SAH Co-Founder Nadia Taha highlights the escalating crisis in El Fasher and the urgent need
+            for sustained public attention.
+          </p>
+          <span className="mt-4 inline-block text-sm font-medium text-[#780403] group-hover:underline">
+            Read coverage
+          </span>
+        </div>
+      </a>
+
+      {/* CBC */}
+      <a
+        href="https://www.cbc.ca/news/world/sudan-el-fasher-rapid-support-forces-killings-9.6956816"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#780403]/30 hover:shadow-xl"
+      >
+        <div className="flex-36 items-center justify-center mt-16 pb-16">
+          <img
+            src="https://i.imgur.com/WkfxEQq.jpeg"
+            alt="CBC logo"
+            className="max-h-auto w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+
+        <div className="mt-6 text-center">
+          <h3 className="text-lg font-semibold text-gray-900">
+            CBC / Radio-Canada
+          </h3>
+          <p className="mt-2 text-sm leading-6 text-gray-600">
+            SAH Co-Founder Nadia Taha reports on killings linked to the assault on El Fasher, reinforcing the
+            need for international accountability and protection of civilians.
+          </p>
+          <span className="mt-4 inline-block text-sm font-medium text-[#780403] group-hover:underline">
+            Read coverage
+          </span>
+        </div>
+      </a>
+
+      {/* BBC */}
+      <div className="group rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#780403]/20 hover:shadow-xl">
+        <div className="flex-32 items-center justify-center p-2">
+          <img
+            src="https://yt3.googleusercontent.com/v4JamQ9B-PUiJHjmZQs9UwTaoLQW8vijJMMpV5QvA2wHQ6iwWM8Q1s6O4jgTl0dtDigVWAi7SA=s900-c-k-c0x00ffffff-no-rj"
+            alt="BBC logo"
+            className="max-h-auto w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+
+        <div className="mt-6 text-center">
+          <h3 className="text-lg font-semibold text-gray-900">BBC</h3>
+          <p className="mt-2 text-sm leading-6 text-gray-600">
+            SAH Co-Founder Nadia Taha advocactes for additional international media recognition underscoring the reach and
+            legitimacy of our advocacy efforts.
+          </p>
+          <span className="mt-4 inline-block text-sm font-medium text-gray-400">
+            Coverage featured
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,6 +201,7 @@ const AdvocacyPage = () => {
               Our advocacy efforts have made a real impact
             </p>
           </motion.div>
+          
 
           <div className="grid md:grid-cols-3 gap-8">
             {pastActions.map((action, index) => <motion.div key={index} initial={{

@@ -14,9 +14,9 @@ const HomePage = () => {
     action: 'Learn More →'
   }, {
     icon: Shield,
-    title: 'Evidence Collection',
-    description: 'Our Secure platform for documenting and preserving evidence of huaman rights atrocities in Darfur.',
-    link: '/evidence-collection',
+    title: 'Advocacy',
+    description: 'We work to advocate for Sudan in the media, through legislation, and via direct community engagement',
+    link: '/advocacy',
     action: 'Learn More →'
   }, {
     icon: Users,
@@ -76,9 +76,9 @@ const HomePage = () => {
                     </Button>
                   </Link>
                 </div>
-                <Link to="/event-programming">
+                <Link to="/blog/HopeandHaven">
                   <Button size="lg" variant="outline" className="bg-red-900 border-white text-white hover:text-white hover:bg-red-700">
-                    Our Work
+                    Learn More
                   </Button>
                 </Link>
               </div>
@@ -90,10 +90,12 @@ const HomePage = () => {
             opacity: 1,
             x: 0
           }} transition={{
-            duration: 0.8,
-            delay: 0.2
+            duration: 0.8
           }}>
-              <img alt=" Photo of protester at Sudan rally" className="rounded-lg shadow-2xl" src="https://i.imgur.com/N9E4R0d.jpeg" />
+              <img alt=" Photo of protester at Sudan rally" className="rounded-lg shadow-2xl" src="https://i.imgur.com/N9E4R0d.jpeg"
+               />
+              <p className="mx-auto text-sm px-1 text-gray-200 mt-1 text-justify-left">Co-Founder Samia Basheir speaking at a rally for Sudan | photo credits: @LaurenColbertMedia</p>
+
             </motion.div>
           </div>
         </div>
@@ -159,7 +161,7 @@ const HomePage = () => {
           }} viewport={{
             once: true
           }}>
-              <img alt="Research and documentation work" className="rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1580088416279-ed8f742c82bf" />
+              <img alt="Photo of protestors as Sudan rally" className="rounded-lg shadow-lg" src="https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/public/photo_highlights/Sudan_Rally_11-9-25-103.jpeg" />
             </motion.div>
             <motion.div initial={{
             opacity: 0,

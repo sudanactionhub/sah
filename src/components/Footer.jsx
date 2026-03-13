@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           <div>
             <a aria-label="Sudan Action Hub" href="https://app.candid.org/profile/16526276/sudan-action-hub-41-2854524/" 
-                target="_blank"> <img alt="Sudan Action Hub Silver Seal Candid Transparency" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16526276/svg" 
+                target="_blank"> <img alt="Sudan Action Hub Platinum Seal Candid Transparency" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16526276/svg" 
                 className = "h-max"/> 
               </a>
               
@@ -86,7 +86,7 @@ const Footer = () => {
                  alt="Sudan Action Hub Logo" className="float-center h-40 pt-2" />
            </div>
            <div className='flex justify-center justify-center text-sm block"'>
-          <p>&copy; 2026 Sudan Action Hub. All rights reserved. * </p>
+          <p>&copy; 2026 Sudan Action Hub. All rights reserved.  </p>
           <a href="/privacypolicy" className="hover:text-red-400 text-right transition-colors underline" >
                 Privacy Policy</a>
                 </div>
