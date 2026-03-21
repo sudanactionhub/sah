@@ -88,7 +88,7 @@ const HopeAndHavenBlogPost = () => {
 
         <div className="min-h-screen bg-white text-gray-900">
         <section className="bg-gradient-to-br from-green-700 via-green-800 to-green-950 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-2 lg:px-4 py-6">
             <Link
               to="/blog"
               className="inline-flex items-center gap-2 text-green-100 hover:text-white transition-colors"
@@ -98,17 +98,17 @@ const HopeAndHavenBlogPost = () => {
             </Link>
           </div>
 
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-3">
             <motion.div
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45 }}
             >
               <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium tracking-wide mb-6">
-                Ramadan Campaign Feature
+                Ramadan Campaign
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6">
                 Sudan Action Hub partners with Hope and Haven Refugees International
               </h1>
 
@@ -123,22 +123,8 @@ const HopeAndHavenBlogPost = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="https://donate.stripe.com/6oUcN5e5rd6Zdos3Kr9sk01"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    size="lg"
-                    className="bg-red-700 text-white hover:bg-red-200 hover:text-green-700 font-semibold"
-                  >
-                    <Heart className="h-4 w-4 mr-2" />
-                    Donate to the Campaign
-                    <ArrowUpRight className="h-4 w-4 ml-2" />
-                  </Button>
-                </a>
-
+             {/*
+             <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#article-content">
                   <Button
                     size="lg"
@@ -149,6 +135,7 @@ const HopeAndHavenBlogPost = () => {
                   </Button>
                 </a>
               </div>
+              */}
             </motion.div>
           </div>
         </section>
@@ -323,14 +310,12 @@ const HopeAndHavenBlogPost = () => {
       that have remained present when others could not.
     </p>
   </section>
-
+{/*
   <section className="scroll-mt-28">
     <div className="rounded-2xl bg-gray-900 text-white p-8 md:p-10 mt-10">
       <h2 className="text-3xl font-bold mb-4">Support the work</h2>
       <p className="text-gray-200 text-lg leading-8 mb-6">
-        As Sudan Action Hub continues to amplify trusted, community-rooted partners,
-        your support helps strengthen response efforts grounded in accountability,
-        proximity, and direct impact.
+        an Action Hub’s humanitarian aid and advocacy efforts by making a donationSupport Sud.
       </p>
       <a
         href="https://donate.stripe.com/6oUcN5e5rd6Zdos3Kr9sk01"
@@ -348,6 +333,7 @@ const HopeAndHavenBlogPost = () => {
       </a>
     </div>
   </section>
+  */}
 
                 <section id="references" className="scroll-mt-28 mt-16">
                   <h2 className="text-3xl font-bold mb-6">References</h2>
@@ -491,15 +477,14 @@ const HopeAndHavenBlogPost = () => {
                     ))}
                   </div>
                 </div>
-
-                <div className="rounded-2xl bg-gray-50 border border-gray-200 p-6">
+                {/** 
+                 <div className="rounded-2xl bg-gray-50 border border-gray-200 p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Take Action</h3>
                   <p className="text-sm text-gray-600 leading-7 mb-4">
-                    Help support trusted, community-rooted response for displaced families from
-                    Sudan.
+                    Support Sudan Action Hub’s humanitarian aid and advocacy efforts by making a donation.
                   </p>
                   <a
-                    href="https://donate.stripe.com/6oUcN5e5rd6Zdos3Kr9sk01"
+                    href="https://donate.stripe.com/4gM6oHe5r0kd98cft99sk00?"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
@@ -509,6 +494,7 @@ const HopeAndHavenBlogPost = () => {
                     </Button>
                   </a>
                 </div>
+                  */}
               </motion.div>
             </aside>
           </div>
@@ -518,7 +504,7 @@ const HopeAndHavenBlogPost = () => {
   );
 };
 
-export const blogMeta = {
+const blogMeta = {
   slug: '/blog/HopeandHaven',
   title: 'Sudan Action Hub partners with Hope and Haven Refugees International',
   author: 'Selsbiel Mertami',
@@ -530,5 +516,7 @@ export const blogMeta = {
   coverImage:
     'https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/public/HopeandHaven/man_distributing_food.png',
 };
+
+export { blogMeta };
 
 export default HopeAndHavenBlogPost;

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, Users, FileText, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import NewsletterForm from '@/components/NewsletterForm';
+
 const HomePage = () => {
   const features = [{
     icon: FileText,
@@ -27,7 +28,7 @@ const HomePage = () => {
   }, {
     icon: Heart,
     title: 'Support our Work',
-    description: 'Support our latest campaign with Hope & Haven, providing essential aid and relief to affected communities.',
+    description: 'Help Sudan Action Hub deliver humanitarian relief and justice to victims and conflict-affected communities.',
     link: '/donate',
     action: 'Donate Now →'
   }];
@@ -115,7 +116,7 @@ const HomePage = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-black-900 mb-4">
               Our Mission
             </h2>
-            <p className="text-xl text-black-600 max-w-3xl mx-auto">Sudan Action Hub mobilizes information, networks, and practical tools to support humanitarian relief, document human rights abuses, strengthen advocacy, and coordinate global action for the people of Sudan — with particular attention to victims of violence in Darfur and other affected regions. We connect individuals, grassroots groups, NGOs, researchers, and policymakers so that evidence-based advocacy, safe collaboration, and life-saving assistance can be scaled effectively.</p>
+            <p className="text-xl text-black-600 max-w-3xl mx-auto">Sudan Action Hub mobilizes information, networks, and practical tools to support humanitarian relief, document human rights abuses, strengthen advocacy, and coordinate global action for the people of Sudan, with particular attention to victims of violence in Darfur and other affected regions. We connect individuals, grassroots groups, NGOs, researchers, and policymakers so that evidence-based advocacy, safe collaboration, and life-saving assistance can be scaled effectively.</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
