@@ -54,8 +54,8 @@ const HomePage = () => {
         <meta name="twitter:image" content="https://imgur.com/a/EpN8GtN" />
       </Helmet>
 
-      <section className="relative bg-gradient-to-br from-[#501c21] to[#501c21] to-[#700c16] text-white py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-[#501c21] to[#501c21] to-[#700c16] text-white py-20 lg:py-32">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{
             opacity: 0,
@@ -64,7 +64,7 @@ const HomePage = () => {
             opacity: 1,
             x: 0
           }} transition={{
-            duration: 0.8
+            duration: 0.5
           }}>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6">Sudan Action Hub (SAH)</h1>
               <p className="text-xl lg:text-2xl mb-8 text-red-50">Protecting Sudan’s people, pursuing justice, and preserving truth.</p>
@@ -129,7 +129,7 @@ const HomePage = () => {
           }} viewport={{
             once: true
           }} transition={{
-            delay: index * 0.1
+            delay: index * 0
           }}>
                 <Link to={feature.link}>
                   <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow h-full group">

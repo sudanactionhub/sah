@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="circle">
+      <circle cx="50" cy="50" r="50" />
+    </clipPath>
+  </defs>
+  <image 
+    href="https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/sign/sah_logo/Sudan%20Action%20Hub%20Logo%20-%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtlvl9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzYWhfbG9nby9TdWRhbiBBY3Rpb24gSHViIExvZ28gLSAzLnBuZyIsImlhdCI6MTc3NDA2NjUzNywiZXhwIjoyMDg5NDI2NTM3fQ.fPftgP77PLym8VnlKcKPZcJ-RlSLIS1tajKTyQxhWMI"
+    width="100"
+    height="100"
+    clip-path="url(#circle)"
+    preserveAspectRatio="xMidYMid slice"
+  />
+</svg>

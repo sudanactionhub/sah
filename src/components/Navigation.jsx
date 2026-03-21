@@ -106,15 +106,13 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
            <Link to="/" className="flex justify-between items-center space-x-3 top-3 ">
-            <div className="top-3 p-8">
+            <div className="top-3">
               <img src="https://krziguirzqciqqjbstrx.supabase.co/storage/v1/object/sign/sah_logo/SAHLogoTransparent_Black.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtl
 eV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJzYWhfbG9nby9TQUhMb2dvVHJhbnNwYXJlbnRfQmxhY2sucG5nIiwiaWF0IjoxNzcyMTU4NjY4LCJleHAiOjIwODc1MTg2Njh9.uYlzXu7evvmic6AAcXKScNzIVMyWxNPJE5Hi990ilEg
               "
-                 alt="Sudan Action Hub Logo" className="h-20" />
+                 alt="Sudan Action Hub Logo" className="h-20 pt-2 w-auto object-contain" />
             </div>
-            {/*} <span className="text-xl font-bold text-gray-900 tracking-tight hidden sm:inline">Sudan Action Hub</span>
-           */}
-           <span className="text-xl font-bold text-gray-900 sm:hidden">SAH</span>
+        
           </Link>
 
           {/* Desktop Nav */}
@@ -201,9 +199,9 @@ eV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmw
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            // initial={{ opacity: 0, height: 0 }}
+            // animate={{ opacity: 1, height: 'auto' }}
+            // exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-white border-t border-gray-200 overflow-y-auto max-h-[85vh]"
           >
             <div className="px-4 pt-4 pb-6 space-y-2 shadow-inner">
@@ -225,7 +223,7 @@ eV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmw
                   <div key={item.label} className="pt-1">
                     {/* Accordion Header */}
                     <button
-                      className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
+                      className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-50"
                       onClick={() => toggleSub(item.label)}
                     >
                       {item.label}
@@ -240,9 +238,9 @@ eV9mODU5YWMwYy1lOGI0LTQ5Y2MtODExMC0yMjUwNjM3ZDU1OTQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmw
                     <AnimatePresence>
                       {openSub === item.label && (
                         <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
+                          // initial={{ opacity: 0, height: 0 }}
+                          // animate={{ opacity: 1, height: 'auto' }}
+                          // exit={{ opacity: 0, height: 0 }}
                           className="ml-4 mt-1 space-y-1 overflow-hidden"
                         >
                           {item.items.map((subItem) => (

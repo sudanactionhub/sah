@@ -50,8 +50,8 @@ const DonatePage = () => {
       <div className="bg-gradient-to-br from-green-600 to-green-800 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            // initial={{ opacity: 0, y: 20 }}
+            // animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
             <Heart className="h-16 w-16 mx-auto mb-4" />
@@ -65,8 +65,8 @@ const DonatePage = () => {
 
       <div className="max-w-3xl mx-auto  sm:px-8 lg:px-16 py-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          // initial={{ opacity: 0, y: 20 }}
+          // animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-lg shadow-xl p-8 mb-16 flex flex-col items-center justify-center"
         >
           {!stripeReady ? (
