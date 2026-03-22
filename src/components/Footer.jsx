@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button'; // Import Button component
 const Footer = () => {
   return (
     <footer className="flex bg-black text-gray-300">
-      <div className="max-w-5xl justify-between  mx-auto  px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-5 md:grid-cols-[35%_1%_15%_15%_15%] justify-between gap-8 block">
+      <div className="max-w-7xl justify-between  mx-auto  px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex grid grid-cols-5 md:grid-cols-5 justify-between gap-2 block">
           <div className="flex items-start space-x-2  mb-2 mr-2 ">
 
             <p className="text-5 text-white font-semibold pl-8">
@@ -19,7 +19,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <span className="text-gray-100 font-semibold mb-2 block">Quick Links</span>
+            <span className="text-gray-100 font-semibold mb-2 mr-1 block">Quick Links</span>
             <ul className="space-y-2 text-sm">
               <li><Link to="/" className="hover:text-red-400 transition-colors">Home</Link></li>
               {/*<li><Link to="/news" className="hover:text-red-400 transition-colors">News</Link></li>
@@ -49,7 +49,7 @@ const Footer = () => {
           
             </ul>
             <div className="flex float-bottom justify-left space-x-2 mt-4 pt-2 pb-2 ">
-              <a href="mailto:admin@sudanhub.org" className="hover:text-green-700 transition-colors pr-1">
+              <a href="mailto:admin@sudanhub.org" className="hover:text-green-700 transition-colors">
                 <MailIcon className="h-5 w-5" />
               </a>
               <a href="https://www.instagram.com/sudanactionhub/" className="hover:text-purple-400 transition-colors">
@@ -74,11 +74,11 @@ const Footer = () => {
         </div>
 
         <div >
-          <div className="flex justify-center  floact-center border-t border-gray-800 mt-2 block" >
+          <div className="flex justify-center float-center border-t border-gray-800 mt-2 block h-30" >
 
             <a aria-label="Sudan Action Hub" href="https://app.candid.org/profile/16526276/sudan-action-hub-41-2854524/" 
                 target="_blank"> <img alt="Sudan Action Hub Platinum Seal Candid Transparency" src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/16526276/svg" 
-                className = "float-center h-30 py-8 pl-8 pr-8"/> 
+                className = "float-center py-8 pl-8 pr-8"/> 
               </a>
               
               {/* <span className="text-lg font-bold text-white">Sudan Action Hub</span>

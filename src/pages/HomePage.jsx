@@ -54,8 +54,8 @@ const HomePage = () => {
         <meta name="twitter:image" content="https://imgur.com/a/EpN8GtN" />
       </Helmet>
 
-      <section className="bg-gradient-to-br from-[#501c21] to[#501c21] to-[#700c16] text-white py-20 lg:py-32">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-[#501c21] to[#501c21] to-[#700c16] text-white py-16 lg:px-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{
             opacity: 0,
@@ -95,7 +95,7 @@ const HomePage = () => {
           }}>
               <img alt=" Photo of protester at Sudan rally" className="rounded-lg shadow-2xl" src="https://i.imgur.com/N9E4R0d.jpeg"
                />
-              <p className="mx-auto text-sm px-1 text-gray-200 mt-1 text-justify-left">Co-Founder Samia Basheir speaking at a rally for Sudan | photo credits: @LaurenColbertMedia</p>
+              <p className="mx-auto text-sm text-gray-200 mt-1 text-justify-left">Co-Founder Samia Basheir speaking at a rally for Sudan | photo credits: @LaurenColbertMedia</p>
 
             </motion.div>
           </div>
