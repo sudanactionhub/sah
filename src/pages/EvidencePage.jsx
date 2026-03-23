@@ -313,7 +313,7 @@ const EvidencePage = () => {
                     <FileUploadWidget
                       onUpload={handleFileUpload}
                       bucket="evidence_submission"
-                      folder="featured"
+                      folder="public_submissions"
                       acceptedTypes="image/*,video/*"
                       label="Upload Image/Video"
                     />
