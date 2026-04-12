@@ -414,7 +414,7 @@ const EventsPage = () => {
         return <DayView date={currentDate} events={filteredEvents} onEventClick={handleEventClick} timezone={timezone} />;
       case 'month':
       default:
-        return <MonthView date={currentDate} events={filteredEvents} onEventClick={handleEventClick} timezone={timezone} />;
+        return <ListView date={currentDate} events={filteredEvents} onEventClick={handleEventClick} timezone={timezone} />;
     }
   };
   
