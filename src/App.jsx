@@ -32,6 +32,7 @@ import JoinUsPage from '@/pages/JoinUsPage';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import BlogPostPage from '@/pages/BlogPostsPage';
 import HopeAndHavenBlogPost from '@/pages/BlogPages/HopeandHaven';
+import SudaneseSynergySummitPage from '@/pages/SudaneseSynergySummitPage';
 
 // Auth Pages
 import LoginPage from '@/pages/auth/LoginPage';
@@ -70,6 +71,7 @@ function App() {
 								<Route path="/humanitarian" element={<HumanitarianPage />} />
 								<Route path="/diaspora" element={<DiasporaSupportPage />} />
 								<Route path="/gala" element={<GalaPage />} />
+								<Route path="/sss26" element={<SudaneseSynergySummitPage />} />
 								<Route path="/donations" element={<DonationsPage />} />
 								<Route path="/donate" element={<DonatePage />} />
 							

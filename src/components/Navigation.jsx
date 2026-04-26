@@ -85,6 +85,7 @@ const Navigation = () => {
     {
       label: 'Events',
       items: [
+        { name: "Sudan Synergy Summit '26", path: '/event-programming' },
         { name: 'Events', path: '/event-programming' },
         { name: 'Events Calendar', path: '/events' },
       ],
