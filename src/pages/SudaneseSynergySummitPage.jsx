@@ -18,7 +18,7 @@ const SudaneseSynergySummitPage = () => {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-  const photoUrls = Array.from({ length: 86 }, (_, i) => {
+  const photoUrls = Array.from({ length: 85 }, (_, i) => {
     const fileNumber = i + 1;
     return supabase.storage
       .from('ssm26')
