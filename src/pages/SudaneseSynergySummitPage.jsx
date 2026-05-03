@@ -284,7 +284,7 @@ const YouTubeEmbedWithThumbnail = ({videoUrl, title, thumbnailUrl }) => {
           <div className="text-center">
             <h2 className="text-3xl lg:text-4xl py-2 font-bold text-blue-950">About the Summit</h2>
             <p className="text-xl text-gray-600 mt-4 max-w-4xl mx-auto">
-              The Sudanese Summit was a powerful weekend of community, culture, advocacy, and collective visioning created as a space for Sudanese people and allies to come together during an incredibly urgent moment for Sudan. Co-hosted with the Najwa Foundation, the summit celebrated the richness of Sudanese identity while fostering meaningful dialogue around how we continue raising awareness, mobilizing support, and building sustained advocacy for Sudan. Across the weekend, attendees engaged with advocates, elected officials, community organizers, artists, influencers, creators, and thought leaders, all contributing to conversations rooted in justice, solidarity, and community care. More than an event, the summit was a reminder of the importance of creating spaces for us, by us spaces where the Sudanese community can gather, heal, strategize, and imagine what collective liberation can look like.
+              The Sudanese Summit was a powerful weekend of community, culture, advocacy, and collective visioning created as a space for Sudanese people and allies to come together during an incredibly urgent moment for Sudan. Hosted by Najwa Foundation in collaboration with Sudan Action Hub and One Love One Ummah, the summit celebrated the richness of Sudanese identity while fostering meaningful dialogue around how we continue raising awareness, mobilizing support, and building sustained advocacy for Sudan. Across the weekend, attendees engaged with advocates, elected officials, community organizers, artists, influencers, creators, and thought leaders, all contributing to conversations rooted in justice, solidarity, and community care. More than an event, the summit was a reminder of the importance of creating spaces for us, by us spaces where the Sudanese community can gather, heal, strategize, and imagine what collective liberation can look like.
             </p>
           </div>
         </div>
@@ -448,7 +448,10 @@ const YouTubeEmbedWithThumbnail = ({videoUrl, title, thumbnailUrl }) => {
       {/* Photo Gallery */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">Photo Gallery</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 ">Photo Gallery</h2>
+          <p className="text-xl text-gray-600 mt-4 text-center mb-6">
+              Photo Credits  <a href="mailto:zh@apicemstudios.com" className="text-blue-600">@apicemstudios</a>
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {photos.map((photo, index) => (
               <img key={index} src={photo} alt={`Summit photo ${index + 1}`} className="w-full h-64 object-cover rounded-lg" />
