@@ -70,9 +70,9 @@ const HomePage = () => {
               <p className="text-xl lg:text-2xl mb-8 text-red-50">Protecting Sudan’s people, pursuing justice, and preserving truth.</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link to="/sss26"> {/* Reverted to internal link */}
+                  <Link to="/local-advocacy-intake"> {/* Reverted to internal link */}
                     <Button size="lg" className="bg-white text-red-800 hover:bg-red-50 font-semibold">
-                      Sudanese Synergy Summit 2026
+                      Join the Local Advocacy Work 
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>

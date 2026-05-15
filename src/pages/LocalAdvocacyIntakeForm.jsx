@@ -7,7 +7,6 @@ import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/lib/customSupabaseClient';
 import {
   validateStep,
-  sanitizeFormData,
   checkAntiSpam,
   prepareSubmissionData,
   validateFullForm,
@@ -319,7 +318,7 @@ function renderStepContent(step, formData, handleInputChange, handleCheckboxChan
     case 1:
       return <EngagementStep formData={formData} handleInputChange={handleInputChange} handleRadioChange={handleRadioChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
     case 2:
-      return <AdditionalContextStep formData={formData} handleRadioChange={handleRadioChange} handleInputChange={handleInputChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
+      return <AdditionalContextStep formData={formData} handleInputChange={handleInputChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
     {/*} case 3:
       return <NextStepsStep formData={formData} handleRadioChange={handleRadioChange} handleInputChange={handleInputChange} errors={errors} />;
    */}
@@ -487,7 +486,7 @@ function EngagementStep({ formData, handleInputChange, handleRadioChange, handle
   );
 }
 
-function AdditionalContextStep({ formData, handleRadioChange, handleInputChange, handleCheckboxChange, errors }) {
+function AdditionalContextStep({ formData, handleInputChange, handleCheckboxChange, errors }) {
   return (
     <div className="space-y-6">
       <div>

@@ -121,7 +121,7 @@ export function validateStep(step, formData) {
   const stepFields = {
     0: ['firstname', 'lastname', 'email', 'phonenumber', 'city', 'state', 'zipcode', 'organizationAffiliation'],
     1: ['involvementlevel', 'availability', 'hoursPerWeek'],
-    2: ['sudanConnection', 'additionalInfo', 'contributionWays', 'heardAbout'],
+    2: ['contributionWays', 'sudanConnection', 'additionalInfo'],
   };
 
   const fields = stepFields[step] || [];
