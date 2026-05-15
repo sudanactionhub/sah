@@ -73,10 +73,10 @@ const Navigation = () => {
       ],
     },
     {
-      label: 'Campaigns',
+      label: 'Advocacy',
       items: [
-        { name: 'Advocacy', path: '/advocacy' },
-        { name: 'Ramadan Campaign', path: '/blog/HopeandHaven' },
+        { name: 'Our Advocacy Work', path: '/advocacy' },
+        { name: 'Be an Advocate', path: '/local-advocacy-intake' },
         // Updated humanitarian link
         //{ name: 'Humanitarian', path: '/humanitarian' },
         //{ name: 'Diaspora', path: '/diaspora' },
