@@ -29,6 +29,7 @@ import PastInitiativesPage from '@/pages/PastInitiativesPage';
 import EventDetailPage from '@/pages/EventDetailPage';
 import DiasporaSupportPage from '@/pages/DiasporaSupportPage';
 import JoinUsPage from '@/pages/JoinUsPage';
+import LocalAdvocacyIntakeForm from '@/pages/LocalAdvocacyIntakeForm';
 import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
 import BlogPostPage from '@/pages/BlogPostsPage';
 import HopeAndHavenBlogPost from '@/pages/BlogPages/HopeandHaven';
@@ -82,6 +83,7 @@ function App() {
 								<Route path="/contact" element={<ContactPage />} />
 								<Route path="/about" element={<AboutPage />} />
 								<Route path="/joinus" element={<JoinUsPage />} />
+								<Route path="/local-advocacy-intake" element={<LocalAdvocacyIntakeForm />} />
 								<Route path="/privacypolicy" element={<PrivacyPolicyPage />} />
 
 								{/* Auth Routes */}

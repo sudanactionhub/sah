@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, AlertCircle, CheckCircle2 } from 'lucide-react';
@@ -13,15 +13,22 @@ import {
   validateFullForm,
   getFirstInvalidField,
   FIELD_TO_STEP,
-} from '@/utils/joinusValidation';
+} from '@/utils/localadvocacyValidation';
 
 const STEPS = [
   { title: 'Basic Information', description: 'Let\'s start with your contact details' },
-  { title: 'Background & Experience', description: 'Tell us about your professional background' },
-  { title: 'Interests & Contribution', description: 'What draws you to Sudan Action Hub?' },
   { title: 'Level of Engagement', description: 'How would you like to be involved?' },
   { title: 'Additional Context', description: 'Any other information we should know?' },
-  { title: 'Next Steps', description: 'How can we stay in touch?' },
+];
+
+const CONTRIBUTION_OPTIONS = [
+  'Media and public awareness',
+  'Policy Research',
+  'Events & convenings',
+  'Press and communications',
+  'Community mobilization organizing',
+  'Strategic planning or advising',
+  'Not sure yet / open to discussion',
 ];
 
 const EXPERIENCE_OPTIONS = [
@@ -38,49 +45,36 @@ const EXPERIENCE_OPTIONS = [
   'Other (please specify)',
 ];
 
-const CONTRIBUTION_OPTIONS = [
-  'Strategic planning or advising',
-  'Program development',
-  'Research & policy work',
-  'Fundraising & partnerships',
-  'Communications & media',
-  'Events & convenings',
-  'Community engagement',
-  'Operational or administrative support',
-  'Thought leadership / speaking / writing',
-  'Long-term leadership or governance',
-  'Not sure yet / open to discussion',
+const INVOLVEMENTLEVEL_OPTIONS = [
+  'Local lead or organizer',
+  'Participant',
 ];
 
 const AVAILABILITY_OPTIONS = [
-  'One-time or short-term support',
-  'Ongoing but flexible involvement',
-  'Regular, structured involvement',
-  'Leadership or advisory capacity',
-  'Not sure yet',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
 ];
 
 const HOURS_OPTIONS = [
-  '1–3 hours',
-  '4–8 hours',
-  '8–15 hours',
-  '15+ hours',
-  'Depends on role',
+  '<1 hour',
+  '1–2 hours',
+  '3–5 hours',
+  '6+ hours',
+  'Depends on the week',
 ];
 
-const HEARD_ABOUT_OPTIONS = [
-  'Launch reception',
-  'Friend or colleague',
-  'Social media',
-  'Website',
-  'Other (please specify)',
-];
 
-const JoinUsPage = () => {
+
+const LocalAdvocacyIntakeForm = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState(() => {
     try {
-      const saved = localStorage.getItem('joinusFormData');
+      const saved = localStorage.getItem('localadvocacyFormData');
       return saved ? JSON.parse(saved) : getInitialFormData();
     } catch {
       return getInitialFormData();
@@ -107,32 +101,33 @@ const JoinUsPage = () => {
 
   function getInitialFormData() {
     return {
-      fullName: '',
+      firstname: '',
+      lastname: '',
       email: '',
-      phoneNumber: '',
-      location: '',
-      organizationAffiliation: '',
+      phonenumber: '',
+      city: '',
+      state: '',
+      zipcode: '',
       portfolio: '',
       currentRole: '',
       backgroundExperience: '',
+      organizationAffiliation: '',
       priorExperiences: [],
       otherExperience: '',
       drawsToHub: '',
       contributionWays: [],
       skillsPerspectives: '',
-      availability: '',
-      hoursPerMonth: '',
+      involvementlevel: '',
+      availability: [],
+      hoursPerWeek: '',
       sudanConnection: '',
       additionalInfo: '',
-      mayContact: '',
-      heardAbout: '',
-      otherSource: '',
       honeypot: '',
     };
   }
 
   useEffect(() => {
-    localStorage.setItem('joinusFormData', JSON.stringify(formData));
+    localStorage.setItem('localadvocacyFormData', JSON.stringify(formData));
   }, [formData]);
 
   const handleInputChange = (e) => {
@@ -165,93 +160,96 @@ const JoinUsPage = () => {
     if (errors[fieldName]) setErrors((p) => ({ ...p, [fieldName]: null }));
   };
 
-  const goNext = () => {
-  const validation = validateStep(currentStep, formData);
-    if (!validation.valid) {
-      setErrors(validation.errors);
-      const firstInvalid = Object.keys(validation.errors)[0];
-      if (firstInvalid) {
-        setTimeout(() => focusFirstInvalidField(firstInvalid), 0);
-      }
-      return;
-    }
-    setErrors({});
-    setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
-  };
-  const goBack = () => setCurrentStep((s) => Math.max(s - 1, 0));
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const validation = validateFullForm(formData);
-    if (!validation.valid) {
-      setErrors(validation.errors);
-      const firstInvalid = getFirstInvalidField(formData);
-      if (firstInvalid) {
-        setCurrentStep(firstInvalid.step);
-        setTimeout(() => focusFirstInvalidField(firstInvalid.fieldName), 0);
-      }
-      toast({ variant: 'destructive', title: 'Please complete the highlighted required fields', description: 'Review the errors below.' });
-      return;
-    }
-
-    const spamCheck = checkAntiSpam(formData);
-    if (spamCheck.isSpam) {
-      toast({ variant: 'destructive', title: 'Submission blocked', description: 'Our security system flagged this submission.' });
-      return;
-    }
-
-    setLoading(true);
-    setErrors({});
-    try {
-      const submissionData = prepareSubmissionData(formData);
-      let success = false;
-      let err = null;
-      try {
-        const resp = await fetch('/api/joinus', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(submissionData) });
-        const data = await resp.json();
-        if (!resp.ok) throw new Error(data.error || 'Failed to submit form');
-        success = true;
-      } catch (apiErr) {
-        console.log('API failed, falling back to Supabase direct:', apiErr.message);
-        const { error: dbError } = await supabase.from('joinus_submissions').insert([{
-          name: submissionData.fullName,
-          email: submissionData.email,
-          location: submissionData.location,
-          availability: submissionData.availability,
-          interests: JSON.stringify(submissionData.contributionWays || []),
-          payload_json: submissionData,
-          created_at: new Date().toISOString(),
-        }]);
-        if (dbError) err = dbError; else success = true;
-      }
-      if (!success) throw err || new Error('Failed to submit form');
-      localStorage.removeItem('joinusFormData');
-      setSubmitted(true);
-      toast({ title: 'Thank you!', description: 'Your submission has been received.' });
-    } catch (error) {
-      console.error('Submission error:', error);
-      toast({ variant: 'destructive', title: 'Submission failed', description: error.message || 'Please try again later.' });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleClearForm = () => {
-    if (!window.confirm('Are you sure you want to clear all your responses?')) return;
-    setFormData(getInitialFormData());
-    setErrors({});
-    setCurrentStep(0);
-    localStorage.removeItem('joinusFormData');
-    toast({ title: 'Form cleared', description: 'All responses have been removed.' });
-  };
-
+   const goNext = () => {
+   const validation = validateStep(currentStep, formData);
+     if (!validation.valid) {
+       setErrors(validation.errors);
+       const firstInvalid = Object.keys(validation.errors)[0];
+       if (firstInvalid) {
+         setTimeout(() => focusFirstInvalidField(firstInvalid), 0);
+       }
+       return;
+     }
+     setErrors({});
+     setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
+   };
+   const goBack = () => setCurrentStep((s) => Math.max(s - 1, 0));
+ 
+   const handleSubmit = async (e) => {
+     e.preventDefault();
+ 
+     const validation = validateFullForm(formData);
+     if (!validation.valid) {
+       setErrors(validation.errors);
+       const firstInvalid = getFirstInvalidField(formData);
+       if (firstInvalid) {
+         setCurrentStep(firstInvalid.step);
+         setTimeout(() => focusFirstInvalidField(firstInvalid.fieldName), 0);
+       }
+       toast({ variant: 'destructive', title: 'Please complete the highlighted required fields', description: 'Review the errors below.' });
+       return;
+     }
+ 
+     const spamCheck = checkAntiSpam(formData);
+     if (spamCheck.isSpam) {
+       toast({ variant: 'destructive', title: 'Submission blocked', description: 'Our security system flagged this submission.' });
+       return;
+     }
+ 
+     setLoading(true);
+     setErrors({});
+     try {
+       const submissionData = prepareSubmissionData(formData);
+       let success = false;
+       let err = null;
+       try {
+         const resp = await fetch('/api/localadvocacy', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(submissionData) });
+         const data = await resp.json();
+         if (!resp.ok) throw new Error(data.error || 'Failed to submit form');
+         success = true;
+       } catch (apiErr) {
+         console.log('API failed, falling back to Supabase direct:', apiErr.message);
+         const { error: dbError } = await supabase.from('localadvocacy_submissions').insert([{
+           firstname: submissionData.firstname,
+           lastname: submissionData.lastname,
+           email: submissionData.email,
+           phonenumber: submissionData.phonenumber,
+           city: submissionData.city,
+           state: submissionData.state,
+           zipcode: submissionData.zipcode,
+           involvementlevel: JSON.stringify(submissionData.involvementlevel || ''),
+           payload_json: submissionData,
+           created_at: new Date().toISOString(),
+         }]);
+         if (dbError) err = dbError; else success = true;
+       }
+       if (!success) throw err || new Error('Failed to submit form');
+       localStorage.removeItem('localadvocacyFormData');
+       setSubmitted(true);
+       toast({ title: 'Thank you!', description: 'Your submission has been received.' });
+     } catch (error) {
+       console.error('Submission error:', error);
+       toast({ variant: 'destructive', title: 'Submission failed', description: error.message || 'Please try again later.' });
+     } finally {
+       setLoading(false);
+     }
+   };
+ 
+   const handleClearForm = () => {
+     if (!window.confirm('Are you sure you want to clear all your responses?')) return;
+     setFormData(getInitialFormData());
+     setErrors({});
+     setCurrentStep(0);
+     localStorage.removeItem('localadvocacyFormData');
+     toast({ title: 'Form cleared', description: 'All responses have been removed.' });
+   };
+ 
   if (submitted) return <SuccessScreen />;
 
   return (
     <>
       <Helmet>
-        <title>Join Us - Sudan Action Hub</title>
+        <title>Local Advocacy Intake Form - Sudan Action Hub</title>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="description" content="Join Sudan Action Hub as a volunteer, advisor, partner, or future board member." />
       </Helmet>
@@ -259,11 +257,13 @@ const JoinUsPage = () => {
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
-            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Sudan Action Hub – Team & Collaboration Interest Form</h1>
+            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Local Advocacy Initiative – Volunteer Interest Form</h1>
             <p className="text-gray-600 mt-4 text-sm leading-relaxed">
-              Thank you for your interest in Sudan Action Hub.
-              <br />
-              We are a growing, impact-driven organization focused on advancing humanitarian action, accountability, and community-centered solutions for Sudan.
+              Sudan is facing one of the world’s worst humanitarian crises, with mass atrocities, ethnic violence, and millions displaced since war erupted in April 2023. Decolonize Sudan and Sudan Action Hub are organizing local meetings with state representatives across the United States, allowing advocates to speak directly with lawmakers and push for meaningful action to end the war.
+  </p>
+  <p className="text-gray-600 mt-4 text-sm leading-relaxed">
+             Be an advocates and help raise awareness, demand accountability for the violence, push for policies that can stop the bloodshed, and increase urgently needed humanitarian aid. If you’d like to help organize meetings with your state lawmakers, or attend meetings as a volunteer, fill out the following form and we’ll follow up.
+            
             </p>
           </motion.div>
 
@@ -317,16 +317,13 @@ function renderStepContent(step, formData, handleInputChange, handleCheckboxChan
     case 0:
       return <BasicInformationStep formData={formData} handleInputChange={handleInputChange} errors={errors} />;
     case 1:
-      return <BackgroundExperienceStep formData={formData} handleInputChange={handleInputChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
+      return <EngagementStep formData={formData} handleInputChange={handleInputChange} handleRadioChange={handleRadioChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
     case 2:
-      return <InterestsStep formData={formData} handleInputChange={handleInputChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
-    case 3:
-      return <EngagementStep formData={formData} handleRadioChange={handleRadioChange} errors={errors} />;
-    case 4:
-      return <AdditionalContextStep formData={formData} handleInputChange={handleInputChange} errors={errors} />;
-    case 5:
+      return <AdditionalContextStep formData={formData} handleRadioChange={handleRadioChange} handleInputChange={handleInputChange} handleCheckboxChange={handleCheckboxChange} errors={errors} />;
+    {/*} case 3:
       return <NextStepsStep formData={formData} handleRadioChange={handleRadioChange} handleInputChange={handleInputChange} errors={errors} />;
-    default:
+   */}
+      default:
       return null;
   }
 }
@@ -336,33 +333,46 @@ function BasicInformationStep({ formData, handleInputChange, errors }) {
     <div className="space-y-6">
       <input type="hidden" name="honeypot" value={formData.honeypot} onChange={handleInputChange} />
 
-      <FormField label="Full Name" required error={errors?.fullName}>
-        <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} placeholder="John Doe" className={inputClass(errors?.fullName)} />
+      <FormField label="First Name" required error={errors?.firstname}>
+        <input type="text" name="firstname" value={formData.firstname} onChange={handleInputChange} placeholder="John" className={inputClass(errors?.firstname)} />
+      </FormField>
+
+      <FormField label="Last Name" required error={errors?.lastname}>
+        <input type="text" name="lastname" value={formData.lastname} onChange={handleInputChange} placeholder="Doe" className={inputClass(errors?.lastname)} />
       </FormField>
 
       <FormField label="Email Address" required error={errors?.email}>
         <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="john@example.com" className={inputClass(errors?.email)} />
       </FormField>
 
-      <FormField label="Phone Number" error={errors?.phoneNumber} helperText="Optional: include country code for international numbers">
-        <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange} placeholder="+1 (202) 555-0142" className={inputClass(errors?.phoneNumber)} />
+      <FormField label="Phone Number" error={errors?.phonenumber} helperText="Optional: include country code for international numbers">
+        <input type="tel" name="phonenumber" value={formData.phonenumber} onChange={handleInputChange} placeholder="+1 (xxx) xxx-xxxx" className={inputClass(errors?.phonenumber)} />
       </FormField>
 
-      <FormField label="City, State / Country" required error={errors?.location}>
-        <input type="text" name="location" value={formData.location} onChange={handleInputChange} placeholder="Washington, DC, USA" className={inputClass(errors?.location)} />
+      <FormField label="City" required error={errors?.city}>
+        <input type="text" name="city" value={formData.city} onChange={handleInputChange} placeholder="Washington" className={inputClass(errors?.city)} />
+      </FormField>
+
+       <FormField label="State" required error={errors?.state}>
+        <input type="text" name="state" value={formData.state} onChange={handleInputChange} placeholder="DC" className={inputClass(errors?.state)} />
+      </FormField>
+
+       <FormField label="Zipcode" required error={errors?.zipcode}>
+        <input type="text" name="zipcode" value={formData.zipcode} onChange={handleInputChange} placeholder="20001" className={inputClass(errors?.zipcode)} />
       </FormField>
 
       <FormField label="Organization or Affiliation" error={errors?.organizationAffiliation} helperText="Optional: include if relevant">
         <input type="text" name="organizationAffiliation" value={formData.organizationAffiliation} onChange={handleInputChange} placeholder="Your organization" className={inputClass(errors?.organizationAffiliation)} />
       </FormField>
-
+{/*}
       <FormField label="LinkedIn, Website, or Portfolio" error={errors?.portfolio} helperText="Optional">
         <input type="text" name="portfolio" value={formData.portfolio} onChange={handleInputChange} placeholder="linkedin.com/in/yourprofile or yourwebsite.com" className={inputClass(errors?.portfolio)} />
       </FormField>
+        */}
     </div>
   );
 }
-
+{/*}
 function BackgroundExperienceStep({ formData, handleInputChange, handleCheckboxChange, errors }) {
   return (
     <div className="space-y-6">
@@ -409,7 +419,7 @@ function InterestsStep({ formData, handleInputChange, handleCheckboxChange, erro
         <label className="block text-sm font-medium text-gray-700 mb-3">In What Ways Are You Most Interested in Contributing? <span className="text-red-500">*</span></label>
         <p className="text-xs text-gray-600 mb-3">Select at least one area</p>
         <fieldset className="space-y-2">
-          <legend className="sr-only">Contribution areas</legend>
+          <legend className="sr-only">Contribution interests</legend>
           {CONTRIBUTION_OPTIONS.map((option) => (
             <div key={option} className="flex items-start">
               <input type="checkbox" id={`contribution-${option}`} checked={formData.contributionWays?.includes(option) || false} onChange={() => handleCheckboxChange(option, 'contributionWays')} className="mt-1 rounded" />
@@ -426,17 +436,32 @@ function InterestsStep({ formData, handleInputChange, handleCheckboxChange, erro
     </div>
   );
 }
+*/}
 
-function EngagementStep({ formData, handleRadioChange, errors }) {
+function EngagementStep({ formData, handleInputChange, handleRadioChange, handleCheckboxChange, errors }) {
   return (
-    <div className="space-y-8">
+      <div className="space-y-8">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-4">How Would You Describe Your Current Availability? <span className="text-red-500">*</span></label>
+        <label className="block text-sm font-medium text-gray-700 mb-4">Would you like to be a local lead or participant? <span className="text-red-500">*</span></label>
+        <fieldset className="space-y-3">
+          <legend className="sr-only">Level of Involvement</legend>
+          {INVOLVEMENTLEVEL_OPTIONS.map((option) => (
+            <div key={option} className="flex items-center">
+              <input type="radio" id={`involvementlevel-${option}`} name="involvementlevel" value={option} checked={formData.involvementlevel === option} onChange={() => handleRadioChange(option, 'involvementlevel')} className="rounded-full" />
+              <label htmlFor={`involvementlevel-${option}`} className="ml-3 text-sm text-gray-700 cursor-pointer">{option}</label>
+            </div>
+          ))}
+        </fieldset>
+        {errors?.involvementlevel && <ErrorMessage message={errors.involvementlevel} />}
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-4">What Days of the Week Are You Available to Participate? <span className="text-red-500">*</span></label>
         <fieldset className="space-y-3">
           <legend className="sr-only">Current availability</legend>
           {AVAILABILITY_OPTIONS.map((option) => (
-            <div key={option} className="flex items-center">
-              <input type="radio" id={`availability-${option}`} name="availability" value={option} checked={formData.availability === option} onChange={() => handleRadioChange(option, 'availability')} className="rounded-full" />
+            <div key={option} className="flex items-start">
+              <input type="checkbox" id={`availability-${option}`} checked={formData.availability?.includes(option) || false} onChange={() => handleCheckboxChange(option, 'availability')} className="mt-1 rounded" /> 
               <label htmlFor={`availability-${option}`} className="ml-3 text-sm text-gray-700 cursor-pointer">{option}</label>
             </div>
           ))}
@@ -445,26 +470,41 @@ function EngagementStep({ formData, handleRadioChange, errors }) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-4">How Many Hours Per Month Would You Realistically Be Able to Contribute?</label>
+        <label className="block text-sm font-medium text-gray-700 mb-4">How Many Hours Per Week Would You Realistically Be Able to Contribute?</label>
         <p className="text-xs text-gray-600 mb-3">Optional: if not sure, you can leave this blank</p>
         <fieldset className="space-y-3">
-          <legend className="sr-only">Hours per month</legend>
+          <legend className="sr-only">Hours per Week</legend>
           {HOURS_OPTIONS.map((option) => (
             <div key={option} className="flex items-center">
-              <input type="radio" id={`hours-${option}`} name="hoursPerMonth" value={option} checked={formData.hoursPerMonth === option} onChange={() => handleRadioChange(option, 'hoursPerMonth')} className="rounded-full" />
+              <input type="radio" id={`hours-${option}`} name="hoursPerWeek" value={option} checked={formData.hoursPerWeek === option} onChange={() => handleRadioChange(option, 'hoursPerWeek')} className="rounded-full" />
               <label htmlFor={`hours-${option}`} className="ml-3 text-sm text-gray-700 cursor-pointer">{option}</label>
             </div>
           ))}
         </fieldset>
-        {errors?.hoursPerMonth && <ErrorMessage message={errors.hoursPerMonth} />}
+        {errors?.hoursPerWeek && <ErrorMessage message={errors.hoursPerWeek} />}
       </div>
     </div>
   );
 }
 
-function AdditionalContextStep({ formData, handleInputChange, errors }) {
+function AdditionalContextStep({ formData, handleRadioChange, handleInputChange, handleCheckboxChange, errors }) {
   return (
     <div className="space-y-6">
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-3">In What Ways Are You Most Interested in Contributing? <span className="text-red-500">*</span></label>
+        <p className="text-xs text-gray-600 mb-3">Select at least one area</p>
+        <fieldset className="space-y-2">
+          <legend className="sr-only">Contribution interests</legend>
+          {CONTRIBUTION_OPTIONS.map((option) => (
+            <div key={option} className="flex items-start">
+              <input type="checkbox" id={`contribution-${option}`} checked={formData.contributionWays?.includes(option) || false} onChange={() => handleCheckboxChange(option, 'contributionWays')} className="mt-1 rounded" />
+              <label htmlFor={`contribution-${option}`} className="ml-3 text-sm text-gray-700 cursor-pointer">{option}</label>
+            </div>
+          ))}
+        </fieldset>
+        {errors?.contributionWays && <ErrorMessage message={errors.contributionWays} />}
+      </div>
+
       <FormField label="Do You Have Any Prior Connection to Sudan or Sudanese Communities?" error={errors?.sudanConnection} helperText="Optional: personal or professional ties are always valuable context">
         <textarea name="sudanConnection" value={formData.sudanConnection} onChange={handleInputChange} placeholder="Share any connections you have to Sudan..." rows="4" className={inputClass(errors?.sudanConnection)} />
       </FormField>
@@ -472,45 +512,12 @@ function AdditionalContextStep({ formData, handleInputChange, errors }) {
       <FormField label="Is There Anything Else You Would Like Us to Know?" error={errors?.additionalInfo} helperText="Optional: final thoughts or additional context">
         <textarea name="additionalInfo" value={formData.additionalInfo} onChange={handleInputChange} placeholder="Any final thoughts..." rows="4" className={inputClass(errors?.additionalInfo)} />
       </FormField>
-    </div>
-  );
-}
 
-function NextStepsStep({ formData, handleRadioChange, handleInputChange, errors }) {
-  return (
-    <div className="space-y-8">
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-4">May We Contact You for Follow-up Conversations or Future Opportunities? <span className="text-red-500">*</span></label>
-        <fieldset className="space-y-3">
-          <legend className="sr-only">Contact permission</legend>
-          {['Yes', 'No'].map((option) => (
-            <div key={option} className="flex items-center">
-              <input type="radio" id={`contact-${option}`} name="mayContact" value={option} checked={formData.mayContact === option} onChange={() => handleRadioChange(option, 'mayContact')} className="rounded-full" />
-              <label htmlFor={`contact-${option}`} className="ml-3 text-sm text-gray-700 cursor-pointer">{option}</label>
-            </div>
-          ))}
-        </fieldset>
-        {errors?.mayContact && <ErrorMessage message={errors.mayContact} />}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-4">How Did You Hear About Sudan Action Hub? <span className="text-red-500">*</span></label>
-        <select name="heardAbout" value={formData.heardAbout} onChange={handleInputChange} className={inputClass(errors?.heardAbout)}>
-          <option value="">Select an option</option>
-          {HEARD_ABOUT_OPTIONS.map((option) => <option key={option} value={option}>{option}</option>)}
-        </select>
-        {errors?.heardAbout && <ErrorMessage message={errors.heardAbout} />}
-      </div>
-
-      {formData.heardAbout === 'Other (please specify)' && (
-        <FormField label="Please Specify Where You Heard About Us" error={errors?.otherSource}>
-          <input type="text" name="otherSource" value={formData.otherSource} onChange={handleInputChange} placeholder="How did you find out about us?" className={inputClass(errors?.otherSource)} />
-        </FormField>
-      )}
-
+{/*}
       <div className="bg-green-50 border border-green-200 rounded-lg p-4 mt-6">
         <p className="text-sm text-gray-700"><strong>We truly appreciate your interest in Sudan Action Hub.</strong><br />Our team will review responses on a rolling basis and reach out as opportunities align with your interests and our evolving needs.</p>
       </div>
+      */}
     </div>
   );
 }
@@ -557,4 +564,4 @@ function SuccessScreen() {
   );
 }
 
-export default JoinUsPage;
+export default LocalAdvocacyIntakeForm;
